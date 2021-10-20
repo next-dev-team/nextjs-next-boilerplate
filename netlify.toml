@@ -1,0 +1,7 @@
+[build]
+  publish = "out"
+  command = "yarn build"
+
+  [build.environment]
+  YARN_VERSION = "1.22.10"
+  NETLIFY_USE_YARN = "true"

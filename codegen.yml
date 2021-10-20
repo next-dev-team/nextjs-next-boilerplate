@@ -1,46 +1,34 @@
+
 # Endpoint API, the following URL is a example
+# https://www.graphql-code-generator.com/docs/generated-config/typescript
 schema: https://graphqlzero.almansi.me/api
 overwrite: true
 
 # Format files
 hooks:
   afterAllFileWrite:
-    # - prettier --write
+    - prettier --write
 
 generates:
   # Get schemas from server
-  graphQl/schemas.ts:
-    documents: '**/**.gql'
+  src/graphQl/schemas.tsx:
+    documents: 'src/**/**.gql'
     plugins:
       - typescript
-    config:
-      enumsAsTypes: true
-      maybeValue: T | null | undefined
-      disableDescriptions: true
-      useImplementingTypes: true
 
   # Create operations based on queries
-  graphQl/operations.ts:
-    documents: '**/**.gql'
+  src/graphQl/operations.tsx:
+    documents: 'src/**/**.gql'
     preset: import-types
     presetConfig:
       typesPath: ./schemas
     plugins:
       - typescript-operations
-    config:
-      avoidOptionals: true
-      declarationKind: 'type'
-      skipTypeNameForRoot: true
-      allowEnumStringTypes: true
-      skipTypename: true
-      useTypeImports: true
-      preResolveTypes: false
-      arrayInputCoercion: false
 
   # 1. Export GraphQL documents
   # 2. React interface
-  graphQl/hooks.tsx:
-    documents: '**/**.gql'
+  src/graphQl/hooks.tsx:
+    documents: 'src/**/**.gql'
     preset: import-types
     presetConfig:
       typesPath: ./operations
@@ -52,8 +40,7 @@ generates:
       withComponent: false
       withHooks: true
       reactApolloVersion: 3
-      # disabled comment
-      addDocBlocks: false
-      dedupeOperationSuffix: true
-      skipTypename: true
-      useTypeImports: true
+      useImplementingTypes: true
+      disableDescriptions: true
+      maybeValue: T | null | undefined
+      enumsAsTypes: true
