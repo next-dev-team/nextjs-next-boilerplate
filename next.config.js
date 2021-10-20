@@ -15,9 +15,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const lessToJS = require('less-vars-to-js');
 const fs = require('fs');
 
-const loadEnvConfig = require('./config/env.ts');
+// const loadEnvConfig = require('./config/env.ts');
 
-loadEnvConfig();
+// loadEnvConfig();
 
 const antdVariables = lessToJS(
   fs.readFileSync(path.resolve(__dirname, './src/styles/variables.less'), 'utf8'),
