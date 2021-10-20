@@ -1,0 +1,59 @@
+# Endpoint API, the following URL is a example
+schema: https://graphqlzero.almansi.me/api
+overwrite: true
+
+# Format files
+hooks:
+  afterAllFileWrite:
+    # - prettier --write
+
+generates:
+  # Get schemas from server
+  graphQl/schemas.ts:
+    documents: '**/**.gql'
+    plugins:
+      - typescript
+    config:
+      enumsAsTypes: true
+      maybeValue: T | null | undefined
+      disableDescriptions: true
+      useImplementingTypes: true
+
+  # Create operations based on queries
+  graphQl/operations.ts:
+    documents: '**/**.gql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./schemas
+    plugins:
+      - typescript-operations
+    config:
+      avoidOptionals: true
+      declarationKind: 'type'
+      skipTypeNameForRoot: true
+      allowEnumStringTypes: true
+      skipTypename: true
+      useTypeImports: true
+      preResolveTypes: false
+      arrayInputCoercion: false
+
+  # 1. Export GraphQL documents
+  # 2. React interface
+  graphQl/hooks.tsx:
+    documents: '**/**.gql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./operations
+    plugins:
+      - typescript-react-apollo
+    config:
+      # Optionals
+      withHOC: false
+      withComponent: false
+      withHooks: true
+      reactApolloVersion: 3
+      # disabled comment
+      addDocBlocks: false
+      dedupeOperationSuffix: true
+      skipTypename: true
+      useTypeImports: true
