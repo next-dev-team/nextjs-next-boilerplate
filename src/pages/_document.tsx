@@ -1,5 +1,5 @@
 import React from 'react';
-import Document, { Head, Main, NextScript, Html } from 'next/document';
+import  { Head, Main, NextScript, Html } from 'next/document';
 
 function MyDocument() {
   return (
@@ -16,19 +16,7 @@ function MyDocument() {
   );
 }
 
-MyDocument.getInitialProps = async (ctx) => {
-  const initialProps = await Document.getInitialProps(ctx);
 
-  return {
-    ...initialProps,
-    styles: (
-      <>
-        {initialProps.styles}
-        <style dangerouslySetInnerHTML={{ __html: null }} />
-      </>
-    ),
-  };
-};
 
 
 export default MyDocument;

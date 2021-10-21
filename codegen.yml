@@ -2,6 +2,7 @@
 # Endpoint API, the following URL is a example
 # https://www.graphql-code-generator.com/docs/generated-config/typescript
 schema: https://graphqlzero.almansi.me/api
+# schema: ${NEXT_PUBLIC_GRAPHQL_API_ENDPOINT}
 overwrite: true
 
 # Format files

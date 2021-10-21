@@ -1,7 +1,7 @@
-import type { TranKey } from '@/locales/useTranslation';
+import type { resources } from '@/locales';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
-    resources: TranKey;
+    resources: typeof resources["en"];
   }
 }

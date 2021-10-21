@@ -7,6 +7,15 @@
       "libraryName": "antd",
       "style": true
     }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "lodash",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "lodash"
     ]
   ],
   "ignore": ["node_modules"]

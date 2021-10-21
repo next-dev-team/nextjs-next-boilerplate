@@ -5,10 +5,10 @@ import Head from 'next/head';
 
 type Props = {
   children?: ReactNode;
-  title?: string;
+  pageTitle?: string;
 };
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, pageTitle = 'This is the default title' }: Props) => (
   <div
     style={{
       maxWidth: 1140,
@@ -18,7 +18,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     }}
   >
     <Head>
-      <title>{title}</title>
+      <title>{pageTitle}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>

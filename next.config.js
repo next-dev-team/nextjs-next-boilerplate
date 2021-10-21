@@ -1,12 +1,6 @@
-/* --------------------------------------------------------
- * Author Sila
- * Email tientran0019@gmail.com
- * Phone 0972970075
- *
- * Created: 2021-06-17 12:29:42
- *------------------------------------------------------- */
 const path = require('path');
 const webpack = require('webpack');
+
 
 const withAntdLess = require('next-plugin-antd-less');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -14,10 +8,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 const lessToJS = require('less-vars-to-js');
 const fs = require('fs');
-
-// const loadEnvConfig = require('./config/env.ts');
-
-// loadEnvConfig();
 
 const antdVariables = lessToJS(
   fs.readFileSync(path.resolve(__dirname, './src/styles/variables.less'), 'utf8'),
