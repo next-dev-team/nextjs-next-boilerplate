@@ -1,0 +1,34 @@
+{
+  "eslint.validate": ["typescript", "typescriptreact"],
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.autoClosingBrackets": "always"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "all",
+    "editor.acceptSuggestionOnEnter": "off"
+  },
+  "typescript.validate.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "cSpell.words": [
+    "alicdn",
+    "camelcase",
+    "echart",
+    "Echarts",
+    "Gorest",
+    "IMOCK",
+    "keyof",
+    "Popconfirm",
+    "szkpgxzd",
+    "yalc",
+    "Ybiz"
+  ]
+}

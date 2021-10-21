@@ -24,7 +24,7 @@ i18n
       caches: ['localStorage'],
     },
     resources,
-    debug: true,
+    debug: false,
     fallbackLng: 'en',
     // have a common namespace used around the full app
     ns: ['translation'],

@@ -7,7 +7,11 @@
         "start": "next start",
         "type-check": "tsc",
         "codegen": "graphql-codegen --config codegen.yml",
-        "codegen:watch": "yarn codegen -- --watch"
+        "codegen:watch": "yarn codegen -- --watch",
+        "lint:fix": "eslint --fix --cache --ext .ts,.tsx --format=pretty ./src && npm run lint:style",
+        "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+        "lint:prettier": "prettier --check \"src/**/*\" --end-of-line auto",
+        "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less"
     },
     "dependencies": {
         "@ant-design/icons": "^4.7.0",
@@ -37,6 +41,7 @@
         "@graphql-codegen/typescript-operations": "^2.1.8",
         "@graphql-codegen/typescript-react-apollo": "^3.1.6",
         "@next/bundle-analyzer": "^11.1.2",
+        "@next/eslint-plugin-next": "^11.1.2",
         "@types/lodash": "^4.14.175",
         "@types/node": "^16.11.1",
         "@types/nprogress": "^0.2.0",

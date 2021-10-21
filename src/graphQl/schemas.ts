@@ -1,5 +1,5 @@
 export type Maybe<T> = T | null | undefined;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type Exact<T extends Record<string, unknown>> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
@@ -44,7 +44,7 @@ export type AlbumPhotosArgs = {
 
 export type AlbumsPage = {
   __typename?: 'AlbumsPage';
-  data?: Maybe<Array<Maybe<Album>>>;
+  data?: Maybe<Maybe<Album>[]>;
   links?: Maybe<PaginationLinks>;
   meta?: Maybe<PageMetadata>;
 };
@@ -64,7 +64,7 @@ export type Comment = {
 
 export type CommentsPage = {
   __typename?: 'CommentsPage';
-  data?: Maybe<Array<Maybe<Comment>>>;
+  data?: Maybe<Maybe<Comment>[]>;
   links?: Maybe<PaginationLinks>;
   meta?: Maybe<PageMetadata>;
 };
@@ -273,11 +273,11 @@ export type PageMetadata = {
 };
 
 export type PageQueryOptions = {
-  operators?: Maybe<Array<Maybe<OperatorOptions>>>;
+  operators?: Maybe<Maybe<OperatorOptions>[]>;
   paginate?: Maybe<PaginateOptions>;
   search?: Maybe<SearchOptions>;
   slice?: Maybe<SliceOptions>;
-  sort?: Maybe<Array<Maybe<SortOptions>>>;
+  sort?: Maybe<Maybe<SortOptions>[]>;
 };
 
 export type PaginateOptions = {
@@ -304,7 +304,7 @@ export type Photo = {
 
 export type PhotosPage = {
   __typename?: 'PhotosPage';
-  data?: Maybe<Array<Maybe<Photo>>>;
+  data?: Maybe<Maybe<Photo>[]>;
   links?: Maybe<PaginationLinks>;
   meta?: Maybe<PageMetadata>;
 };
@@ -325,7 +325,7 @@ export type PostCommentsArgs = {
 
 export type PostsPage = {
   __typename?: 'PostsPage';
-  data?: Maybe<Array<Maybe<Post>>>;
+  data?: Maybe<Maybe<Post>[]>;
   links?: Maybe<PaginationLinks>;
   meta?: Maybe<PageMetadata>;
 };
@@ -436,7 +436,7 @@ export type Todo = {
 
 export type TodosPage = {
   __typename?: 'TodosPage';
-  data?: Maybe<Array<Maybe<Todo>>>;
+  data?: Maybe<Maybe<Todo>[]>;
   links?: Maybe<PaginationLinks>;
   meta?: Maybe<PageMetadata>;
 };
@@ -510,7 +510,7 @@ export type UserTodosArgs = {
 
 export type UsersPage = {
   __typename?: 'UsersPage';
-  data?: Maybe<Array<Maybe<User>>>;
+  data?: Maybe<Maybe<User>[]>;
   links?: Maybe<PaginationLinks>;
   meta?: Maybe<PageMetadata>;
 };
