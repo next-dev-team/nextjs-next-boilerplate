@@ -1,9 +1,8 @@
-import React from 'react';
 import withGA from 'next-ga';
-import NProgress from 'nprogress';
 import Router from 'next/router';
-require('../styles/global.less');
- require('../locales');
+import NProgress from 'nprogress';
+import React from 'react';
+require('../locales');
 
 const GA_ID = '';
 
@@ -15,9 +14,7 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
-  return (
-      <Component {...pageProps} />
-  );
+  return <Component {...pageProps} />;
 }
 
 export default withGA(GA_ID, Router)(MyApp);

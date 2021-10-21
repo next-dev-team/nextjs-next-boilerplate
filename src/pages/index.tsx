@@ -1,10 +1,9 @@
-import React from 'react';
 import Layout from '@/components/atoms/Layout';
 import { usePostQuery } from '@/graphQl/hooks';
+import { changeI18n } from '@/locales';
 import withApollo from '@/utils/withApollo';
 import { getDataFromTree } from '@apollo/client/react/ssr';
-import { Button, Space } from 'antd';
-import { changeI18n } from '@/locales';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const IndexPage = () => {
@@ -19,15 +18,9 @@ const IndexPage = () => {
   return (
     <Layout pageTitle="Home | Next.js + TypeScript Example">
       <h1>{t('siteTitle') + `👋`}</h1>
-      
-      <Space>
-        <Button type="primary" onClick={() => changeI18n('en')}>
-          Change I18n En
-        </Button>
-        <Button danger onClick={() => changeI18n('km')}>
-          Change I18n Km
-        </Button>
-      </Space>
+
+      <button onClick={() => changeI18n('en')}>Change I18n En</button>
+      <button onClick={() => changeI18n('km')}>Change I18n Km</button>
     </Layout>
   );
 };
