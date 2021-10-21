@@ -2,6 +2,7 @@ import withGA from 'next-ga';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import React from 'react';
+import 'tailwindcss/tailwind.css';
 require('../locales');
 
 const GA_ID = '';
