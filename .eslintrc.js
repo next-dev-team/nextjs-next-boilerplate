@@ -4,5 +4,6 @@ module.exports = {
 
   rules: {
     // your rules
+    '@typescript-eslint/consistent-type-imports': 0,
   },
 };
