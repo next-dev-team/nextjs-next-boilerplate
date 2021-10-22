@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Layout from '@/components/atoms/Layout';
+import { CREDENTIAL } from '@/constants';
 import { usePostQuery } from '@/graphQl/hooks';
 import { changeI18n } from '@/locales';
 import withApollo from '@/utils/withApollo';
@@ -19,6 +20,9 @@ const IndexPage = () => {
         <h1 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl text-center mb-6 mt-6">
           {t('siteTitle') + `👋`}
         </h1>
+        <h2 className="font-extrabold text-black dark:text-white text-3xl text-center mb-6 mt-6">
+          Testing GraphQl Api with {CREDENTIAL.GRAPHQL_API_ENDPOINT}
+        </h2>
         <button
           type="button"
           onClick={() => changeI18n('en')}
