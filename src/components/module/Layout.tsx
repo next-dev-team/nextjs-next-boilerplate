@@ -7,7 +7,7 @@ type Props = {
   pageTitle?: string;
 };
 
-const Layout = ({ children, pageTitle = 'This is the default title' }: Props) => (
+export const Layout = ({ children, pageTitle = 'This is the default title' }: Props) => (
   <div>
     <Head>
       <title>{pageTitle}</title>
@@ -17,5 +17,3 @@ const Layout = ({ children, pageTitle = 'This is the default title' }: Props) =>
     {children}
   </div>
 );
-
-export default Layout;

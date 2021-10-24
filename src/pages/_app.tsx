@@ -1,4 +1,5 @@
 import '@/assets/css/nprogress.css';
+import { NarBar } from '@/components/module';
 import withGA from 'next-ga';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -15,8 +16,13 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps, router }) {
+  return (
+    <>
+      <NarBar {...router} />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default withGA(GA_ID, Router)(MyApp);

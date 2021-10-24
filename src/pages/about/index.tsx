@@ -1,12 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { Layout } from '@/components/module';
-import { CREDENTIAL } from '@/constants';
-import { PostDocument, usePostQuery } from '@/graphQl/hooks';
-import { requestAxios } from '@/utils/requestAxios';
+import { usePostQuery } from '@/graphQl/hooks';
 import withApollo from '@/utils/withApollo';
 import { getDataFromTree } from '@apollo/client/react/ssr';
-import { print } from 'graphql';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const IndexPage = () => {
@@ -20,31 +17,12 @@ const IndexPage = () => {
     variables: { id: '1' },
   });
 
-  /**
-   *
-   * get post using axios
-   */
-  const getPost = async () => {
-    const res = requestAxios.post('', {
-      query: print(PostDocument),
-      variables: { id: '1' },
-    });
-    return res;
-  };
-
-  useEffect(() => {
-    getPost();
-  }, []);
-
   return (
     <Layout pageTitle="Home | Next.js + TypeScript Example">
       <div className="max-w-lg mx-auto mt-20">
         <h1 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl text-center mb-6 mt-6">
           {t('siteTitle') + `👋`}
         </h1>
-        <h2 className="font-extrabold text-black dark:text-white text-3xl text-center mb-6 mt-6">
-          Testing GraphQl Api with {CREDENTIAL.GRAPHQL_API_ENDPOINT}
-        </h2>
 
         <div className="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4 mt-16">
           <p className="text-gray-600 dark:text-white">
