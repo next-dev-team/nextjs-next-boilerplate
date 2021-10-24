@@ -8,7 +8,9 @@
         "dev": "next",
         "predev": "yarn codegen",
         "start": "next start",
+        "start:prod": "serve out",
         "build": "next build && next export",
+        "build:no-export": "next build",
         "prebuild": "yarn codegen",
         "type-check": "tsc",
         "codegen": "DOTENV_CONFIG_PATH=./.env graphql-codegen -r dotenv/config --config codegen.yml",
@@ -37,6 +39,7 @@
         "tailwindcss": "^2.2.17"
     },
     "devDependencies": {
+        "serve": "12.0.1",
         "@graphql-codegen/cli": "^2.2.1",
         "@graphql-codegen/import-types-preset": "^2.1.6",
         "@graphql-codegen/introspection": "^2.1.0",
