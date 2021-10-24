@@ -1,11 +1,10 @@
+import '@/assets/css/nprogress.css';
 import withGA from 'next-ga';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import React from 'react';
 import 'tailwindcss/tailwind.css';
-import '/css/nprogress.css';
-
-require('../locales');
+import('@/locales');
 
 const GA_ID = '';
 

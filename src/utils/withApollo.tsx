@@ -1,18 +1,14 @@
-import {
-  ApolloClient,
-  ApolloProvider,
-  HttpLink,
-  InMemoryCache,
-} from "@apollo/client";
-import { Router } from "next/router";
-import nextWithApollo from "next-with-apollo";
+import { CREDENTIAL } from '@/constants';
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
+import nextWithApollo from 'next-with-apollo';
+import { Router } from 'next/router';
 
 const withApollo = nextWithApollo(
   ({ initialState, headers }) => {
     return new ApolloClient({
-      ssrMode: typeof window === "undefined",
+      ssrMode: typeof window === 'undefined',
       link: new HttpLink({
-        uri: "https://graphqlzero.almansi.me/api",
+        uri: CREDENTIAL.GRAPHQL_API_ENDPOINT,
       }),
       headers: {
         ...(headers as Record<string, string>),
@@ -28,7 +24,7 @@ const withApollo = nextWithApollo(
         </ApolloProvider>
       );
     },
-  }
+  },
 );
 
 export default withApollo;

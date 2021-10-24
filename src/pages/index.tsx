@@ -1,18 +1,41 @@
 /* eslint-disable @next/next/no-img-element */
 import Layout from '@/components/atoms/Layout';
 import { CREDENTIAL } from '@/constants';
-import { usePostQuery } from '@/graphQl/hooks';
+import { PostDocument, usePostQuery } from '@/graphQl/hooks';
 import { changeI18n } from '@/locales';
+import { requestAxios } from '@/utils/requestAxios';
 import withApollo from '@/utils/withApollo';
 import { getDataFromTree } from '@apollo/client/react/ssr';
-import React from 'react';
+import { print } from 'graphql';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const IndexPage = () => {
+  const { t } = useTranslation();
+
+  /**
+   *
+   * get post using graphQl
+   */
   const { data } = usePostQuery({
     variables: { id: '1' },
   });
-  const { t } = useTranslation();
+
+  /**
+   *
+   * get post using axios
+   */
+  const getPost = async () => {
+    const res = requestAxios.post('', {
+      query: print(PostDocument),
+      variables: { id: '1' },
+    });
+    return res;
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
 
   return (
     <Layout pageTitle="Home | Next.js + TypeScript Example">

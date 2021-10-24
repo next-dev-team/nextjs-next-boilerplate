@@ -6,6 +6,7 @@
     "license": "MIT",
     "scripts": {
         "dev": "next",
+        "dev:no-gen": "next",
         "predev": "yarn codegen",
         "start": "next start",
         "start:prod": "serve out",
@@ -23,6 +24,7 @@
     "dependencies": {
         "@apollo/client": "^3.4.16",
         "autoprefixer": "^10.3.7",
+        "axios": "^0.23.0",
         "dayjs": "^1.10.7",
         "graphql": "^15.6.1",
         "graphql-tag": "^2.12.5",
@@ -39,7 +41,6 @@
         "tailwindcss": "^2.2.17"
     },
     "devDependencies": {
-        "serve": "12.0.1",
         "@graphql-codegen/cli": "^2.2.1",
         "@graphql-codegen/import-types-preset": "^2.1.6",
         "@graphql-codegen/introspection": "^2.1.0",
@@ -59,6 +60,7 @@
         "i18next": "^21.3.3",
         "i18next-browser-languagedetector": "^6.1.2",
         "i18next-xhr-backend": "^3.2.2",
+        "serve": "12.0.1",
         "typescript": "4.4.4"
     }
 }
