@@ -1,14 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { Layout } from '@/components/module';
 import { usePostQuery } from '@/graphQl/hooks';
+import { t } from '@/locales';
 import withApollo from '@/utils/withApollo';
 import { getDataFromTree } from '@apollo/client/react/ssr';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 const IndexPage = () => {
-  const { t } = useTranslation();
-
   /**
    *
    * get post using graphQl

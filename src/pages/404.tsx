@@ -1,10 +1,8 @@
-import * as React from 'react';
+import { t } from '@/locales';
 import withApollo from '@/utils/withApollo';
-import { useTranslation } from 'react-i18next';
+import * as React from 'react';
 
 function Custom404() {
-  const { t } = useTranslation();
-
   return <h1>{t('siteTitle')}</h1>;
 }
 export default withApollo(Custom404);

@@ -1,5 +1,6 @@
 module.exports = {
-  webpack(config, options) {
+  swcMinify: true,
+  webpack(config) {
     return config;
   },
   typescript: {

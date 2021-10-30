@@ -1,17 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { Layout } from '@/components/module';
 import { CREDENTIAL } from '@/constants';
-import { PostDocument, usePostQuery } from '@/graphQl/hooks';
-import { requestAxios } from '@/utils/requestAxios';
+import { usePostQuery } from '@/graphQl/hooks';
+import { t } from '@/locales';
 import withApollo from '@/utils/withApollo';
 import { getDataFromTree } from '@apollo/client/react/ssr';
-import { print } from 'graphql';
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 
 const IndexPage = () => {
-  const { t } = useTranslation();
-
   /**
    *
    * get post using graphQl
@@ -20,21 +16,21 @@ const IndexPage = () => {
     variables: { id: '1' },
   });
 
-  /**
-   *
-   * get post using axios
-   */
-  const getPost = async () => {
-    const res = requestAxios.post('', {
-      query: print(PostDocument),
-      variables: { id: '1' },
-    });
-    return res;
-  };
+  // /**
+  //  *
+  //  * get post using axios
+  //  */
+  // const getPost = async () => {
+  //   const res = requestAxios.post('', {
+  //     query: print(PostDocument),
+  //     variables: { id: '1' },
+  //   });
+  //   return res;
+  // };
 
-  useEffect(() => {
-    getPost();
-  }, []);
+  // useEffect(() => {
+  //   getPost();
+  // }, []);
 
   return (
     <Layout pageTitle="Home | Next.js + TypeScript Example">

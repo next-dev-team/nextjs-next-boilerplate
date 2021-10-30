@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { changeI18n } from '@/locales';
 import classNames from 'classnames';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 
 export const NarBar = (props) => {
-  console.log('props', props);
+  // console.log('props', props);
+  const { push, isReady } = useRouter();
 
   const menu = [
     {
@@ -31,9 +32,9 @@ export const NarBar = (props) => {
           {/* navbar */}
           <nav className="flex justify-between bg-gray-900 text-white w-screen ">
             <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-              <a className="text-3xl font-bold font-heading">
+              <a className="text-3xl font-bold font-heading" onClick={() => push('/')}>
                 {/* <img class="h-9" src="logo.png" alt="logo"> */}
-                <Link href="/"> Logo Here.</Link>
+                Logo Here.
               </a>
               {/* Nav Links */}
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12 ">
@@ -46,8 +47,8 @@ export const NarBar = (props) => {
                         getPathRoute?.path === i.path ? 'border-white' : 'border-none',
                       )}
                     >
-                      <a className="hover:text-gray-200">
-                        <Link href={i.path}>{i.name}</Link>
+                      <a className="hover:text-gray-200" onClick={() => push(i.path)}>
+                        {i.name}
                       </a>
                     </li>
                   );
