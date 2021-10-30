@@ -1,7 +1,8 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
-import { initReactI18next } from 'react-i18next';
+import { useMemo } from 'react';
+import { initReactI18next, useTranslation } from 'react-i18next';
 import en from './en/translation.json';
 import km from './km/translation.json';
 
@@ -40,9 +41,14 @@ type CustomTypeOptions = {
   resources: TranKey;
 };
 
-export function t(key: keyof CustomTypeOptions['resources']) {
-  return i18n.t(key);
+export function t(name: keyof CustomTypeOptions['resources']) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t: tr } = useTranslation();
+  //@ts-ignore
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  return useMemo(() => tr(name), [name, tr]);
 }
+
 export function changeI18n(key: keyof typeof resources) {
   i18n.changeLanguage(key);
 }
