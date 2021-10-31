@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { Layout } from '@/components/module';
 import { usePostQuery } from '@/graphQl/hooks';
-import { t } from '@/locales';
 import withApollo from '@/utils/withApollo';
 import { getDataFromTree } from '@apollo/client/react/ssr';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const IndexPage = () => {
+  const { t } = useTranslation();
   /**
    *
    * get post using graphQl
@@ -19,7 +20,7 @@ const IndexPage = () => {
     <Layout pageTitle="Home | Next.js + TypeScript Example">
       <div className="max-w-lg mx-auto mt-20">
         <h1 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl text-center mb-6 mt-6">
-          {t('siteTitle') + `👋`}
+          {t('actions') + `👋`}
         </h1>
 
         <div className="bg-white dark:bg-gray-800 w-72 shadow-lg mx-auto rounded-xl p-4 mt-16">

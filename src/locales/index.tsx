@@ -1,22 +1,9 @@
-import i18n from 'i18next';
+import i18n, { StringMap, TOptionsBase } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
-import { useMemo } from 'react';
-import { initReactI18next, useTranslation } from 'react-i18next';
-import en from './en/translation.json';
-import km from './km/translation.json';
-
-export const resources = {
-  en: {
-    translation: en,
-  },
-  km: {
-    translation: km,
-  },
-} as const;
+import { initReactI18next, TFuncKey, useTranslation } from 'react-i18next';
+import * as resources from './resources';
 
 i18n
-  .use(Backend)
   .use(initReactI18next) // passes i18n down to react-i18next
   .use(LanguageDetector)
   .init({
@@ -24,33 +11,40 @@ i18n
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
     },
-    resources,
-    debug: false,
+    resources: {
+      ...Object.entries(resources).reduce(
+        (acc, [key, value]) => ({
+          ...acc,
+          [key]: {
+            translation: value,
+          },
+        }),
+        {},
+      ),
+    },
+    debug: true,
     fallbackLng: 'en',
     // have a common namespace used around the full app
-    ns: ['translation'],
-    defaultNS: 'translation',
     interpolation: {
       escapeValue: false,
     },
-    react: { useSuspense: false }, //this line
+    defaultNS: 'translation',
+    ns: ['translation'],
   });
 
-export type TranKey = typeof en;
-type CustomTypeOptions = {
-  resources: TranKey;
-};
-
-export function t(name: keyof CustomTypeOptions['resources']) {
+/**
+ * translate i18n
+ * @param key
+ * @param options
+ * @returns
+ */
+export const t = (key: TFuncKey, options?: TOptionsBase & StringMap) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t: tr } = useTranslation();
-  //@ts-ignore
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  return useMemo(() => tr(name), [name, tr]);
-}
+  return tr(key, options);
+};
 
 export function changeI18n(key: keyof typeof resources) {
   i18n.changeLanguage(key);
 }
-
 export default i18n;

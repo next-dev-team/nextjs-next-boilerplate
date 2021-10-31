@@ -5,7 +5,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import React from 'react';
 import 'tailwindcss/tailwind.css';
-import('@/locales');
+import('../locales');
 
 const GA_ID = '';
 

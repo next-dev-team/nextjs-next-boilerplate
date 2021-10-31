@@ -1,7 +1,7 @@
-import type { resources } from '@/locales';
+import { en } from '../locales/resources';
 
 declare module 'react-i18next' {
   interface CustomTypeOptions {
-    resources: typeof resources["en"];
+    resources: { translation: typeof en };
   }
 }
