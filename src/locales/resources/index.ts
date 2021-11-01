@@ -1,2 +1,2 @@
-export { default as en } from './en';
-export { default as km } from './km';
+export { default as en } from './en.json';
+export { default as km } from './km.json';
