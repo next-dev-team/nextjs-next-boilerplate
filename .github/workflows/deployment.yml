@@ -13,4 +13,6 @@ jobs:
         with:
           node-version: 8
       - run: npm install -g surge
+      - run: yarn build:export
+      - run: cd out
       - run: surge --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}

@@ -9,6 +9,7 @@
         "dev:gen": "yarn codegen &&  next",
         "start": "next start",
         "build": "next build",
+        "build:export": "yarn build && next export",
         "codegen": "DOTENV_CONFIG_PATH=./.env graphql-codegen -r dotenv/config --config codegen.yml",
         "codegen:watch": "yarn codegen -- --watch",
         "lint:fix": "eslint --fix --cache --ext .ts,.tsx --format=pretty ./src && npm run lint:style",
