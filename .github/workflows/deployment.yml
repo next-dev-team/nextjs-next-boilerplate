@@ -16,4 +16,4 @@ jobs:
       - name: Build page
         run: yarn build:export
       - run: cd out
-      - run: surge --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
