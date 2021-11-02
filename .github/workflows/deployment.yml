@@ -15,7 +15,7 @@ jobs:
         run: yarn install
       - name: Build page
         run: yarn build:export
-      - name: Deploy to foo-bar.surge.sh
+      - name: Deploy
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: ${{ secrets.SURGE_DOMAIN }}
