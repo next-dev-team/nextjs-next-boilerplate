@@ -1,18 +1,15 @@
-name: Deploy Website
-
-on: [push]
-
+name: Deployment
+on:
+  push:
+    branches:
+      - main
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    name: Deploying to surge
     steps:
-      - uses: actions/checkout@v2
-      - name: Install surge and fire deployment
-        uses: dswistowski/surge-sh-action@v1
-        with:
-          domain: ${{ secrets.SURGE_DOMAIN }}
-          token: ${{ secrets.SURGE_TOKEN }}
-      - name: Install Packages
-        run: yarn install
-        run: yarn build:export
+    - uses: actions/checkout@v1
+      uses: actions/setup-node@v1
+    - name: Install Packages
+      run: yarn install
+    - name: Build page
+      run: yarn build:export
