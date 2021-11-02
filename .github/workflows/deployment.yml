@@ -13,4 +13,5 @@ jobs:
         with:
           domain: ${{ secrets.SURGE_DOMAIN }}
           project: '.'
+          publish_dir: ./out
           token: ${{ secrets.SURGE_TOKEN }}
