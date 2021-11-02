@@ -16,4 +16,3 @@ jobs:
       - name: Install Packages
         run: yarn install
         run: yarn build:export
-        publish_dir: "./out"
