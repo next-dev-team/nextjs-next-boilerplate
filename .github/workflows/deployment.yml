@@ -16,4 +16,9 @@ jobs:
       - name: Build page
         run: yarn build:export
       - run: cd out
-      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - name: Deploy to foo-bar.surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: ${{ secrets.SURGE_DOMAIN }}
+          project: '.'
+          token: ${{ secrets.SURGE_TOKEN }}
