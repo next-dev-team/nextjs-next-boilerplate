@@ -7,12 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploying to surge
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Install surge and fire deployment
-        uses: actions/setup-node@v1
+        uses: dswistowski/surge-sh-action@v1
         with:
-          node-version: 8
-      - run: npm install -g surge
-      - run: yarn build:export
-      - run: cd out
-      - run: surge --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          domain: ${{ secrets.SURGE_DOMAIN }}
+          project: 'out'
+          token: ${{ secrets.SURGE_TOKEN }}
