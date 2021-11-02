@@ -12,5 +12,5 @@ jobs:
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: ${{ secrets.SURGE_DOMAIN }}
-          project: 'out'
+          project: './out'
           token: ${{ secrets.SURGE_TOKEN }}
