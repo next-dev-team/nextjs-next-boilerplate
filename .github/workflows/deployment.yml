@@ -12,8 +12,8 @@ jobs:
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: ${{ secrets.SURGE_DOMAIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
       - name: Install Packages
         run: yarn install
         run: yarn build:export
-        token: ${{ secrets.SURGE_TOKEN }}
         publish_dir: ./out
