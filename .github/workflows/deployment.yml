@@ -7,9 +7,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-      uses: actions/setup-node@v1
-    - name: Install Packages
-      run: yarn install
-    - name: Build page
-      run: yarn build:export
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - name: Install Packages
+        run: yarn install
+      - name: Build page
+        run: yarn build:export
