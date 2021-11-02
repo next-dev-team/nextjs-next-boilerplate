@@ -13,7 +13,7 @@ jobs:
         with:
           domain: ${{ secrets.SURGE_DOMAIN }}
       - name: Install Packages
-          run: yarn
-          run: yarn build:export
-          publish_dir: ./out
-          token: ${{ secrets.SURGE_TOKEN }}
+        run: yarn install
+        run: yarn build:export
+        token: ${{ secrets.SURGE_TOKEN }}
+        publish_dir: ./out
