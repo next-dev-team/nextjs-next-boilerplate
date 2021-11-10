@@ -22,7 +22,7 @@ i18n
         {},
       ),
     },
-    debug: true,
+    debug: false,
     fallbackLng: 'en',
     // have a common namespace used around the full app
     interpolation: {

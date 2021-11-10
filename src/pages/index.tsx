@@ -3,8 +3,6 @@ import { Layout } from '@/components/module';
 import { CREDENTIAL } from '@/constants';
 import { usePostQuery } from '@/graphQl/hooks';
 import { t } from '@/locales';
-import withApollo from '@/utils/withApollo';
-import { getDataFromTree } from '@apollo/client/react/ssr';
 import React from 'react';
 
 const IndexPage = () => {
@@ -66,4 +64,4 @@ const IndexPage = () => {
   );
 };
 
-export default withApollo(IndexPage, { getDataFromTree });
+export default IndexPage;
