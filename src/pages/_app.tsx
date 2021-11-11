@@ -5,7 +5,7 @@ import { getDataFromTree } from '@apollo/client/react/ssr';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 import React from 'react';
-import 'tailwindcss/tailwind.css';
+import '../styles/global.css';
 import('../locales');
 
 function MyApp({ Component, pageProps, router }) {

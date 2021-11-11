@@ -6,7 +6,7 @@ import React, { useMemo } from 'react';
 
 export const NarBar = (props) => {
   // console.log('props', props);
-  const { push, isReady } = useRouter();
+  const { push } = useRouter();
 
   const menu = [
     {
