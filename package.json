@@ -27,7 +27,7 @@
         "autoprefixer": "^10.4.0",
         "axios": "^0.24.0",
         "classnames": "^2.3.1",
-        "components-next": "^0.0.13",
+        "components-next": "^0.0.20",
         "dayjs": "^1.10.7",
         "graphql": "^16.0.1",
         "graphql-tag": "^2.12.6",

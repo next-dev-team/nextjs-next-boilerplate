@@ -1,15 +1,16 @@
 import { Layout } from '@/components/module';
 import { CREDENTIAL } from '@/constants';
 import { usePostQuery } from '@/graphQl/hooks';
+import { Exact } from '@/graphQl/schemas';
 import { t } from '@/locales';
 import { useReactive } from 'ahooks';
 import { omit } from 'lodash';
 import React from 'react';
 
 const IndexPage = () => {
-  const state = useReactive({
+  const state = useReactive<{ variables: Exact<{ id: string }> }>({
     variables: {
-      id: 1,
+      id: '1',
     },
   });
 
@@ -18,10 +19,8 @@ const IndexPage = () => {
    * get post using graphQl
    */
   const { data, loading } = usePostQuery({
-    variables: { ...(state.variables as any) },
+    variables: state.variables,
   });
-
-  console.log('data', data);
 
   const renderObj = Object.keys(omit(data?.post, '__typename')).map((i, k) => {
     const objVal = Object.values(omit(data?.post, '__typename'))[k];
