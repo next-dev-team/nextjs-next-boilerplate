@@ -6,8 +6,9 @@
     "license": "MIT",
     "scripts": {
         "dev": "next",
+        "prod": "next start",
         "dev:gen": "yarn codegen &&  next",
-        "start": "next start",
+        "start": "yarn dev",
         "build": "next build",
         "build:export": "yarn build && next export",
         "codegen": "DOTENV_CONFIG_PATH=./.env graphql-codegen -r dotenv/config --config codegen.yml",
@@ -22,12 +23,14 @@
         "docker-build": "docker build -t nextjs-docker ."
     },
     "dependencies": {
+        "@ant-design/icons": "^4.7.0",
         "@apollo/client": "^3.4.17",
-        "ahooks": "^3.0.0-alpha.9",
+        "@hookstate/core": "^3.0.13",
+        "ahooks": "^3.0.1",
         "autoprefixer": "^10.4.0",
         "axios": "^0.24.0",
         "classnames": "^2.3.1",
-        "components-next": "^0.0.20",
+        "components-next": "^0.0.22",
         "dayjs": "^1.10.7",
         "graphql": "^16.0.1",
         "graphql-tag": "^2.12.6",

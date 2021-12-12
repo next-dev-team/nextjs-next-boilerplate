@@ -2,6 +2,7 @@ import '@/assets/css/nprogress.css';
 import { NarBar } from '@/components/module';
 import withApollo from '@/utils/withApollo';
 import { getDataFromTree } from '@apollo/client/react/ssr';
+import 'components-next/es/assets/styles.css';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 import React from 'react';
