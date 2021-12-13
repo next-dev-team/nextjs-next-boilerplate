@@ -2,7 +2,7 @@ import { clx } from '@/utils';
 import type { ReactNode } from 'react';
 import React from 'react';
 
-type Props = {
+export type ISection = {
   children?: ReactNode;
   /**
    * container clx
@@ -14,7 +14,7 @@ type Props = {
   topTitle?: string;
 };
 
-const Section = ({ children, className, clxTopTitle, clxTitle, topTitle, title }: Props) => {
+const Section = ({ children, className, clxTopTitle, clxTitle, topTitle, title }: ISection) => {
   return (
     <section className={clx('lg:py-14 py-10 px-8 lg:px-0  mx-auto', className)}>
       {topTitle && (

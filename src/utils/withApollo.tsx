@@ -1,30 +1,61 @@
 import { CREDENTIAL } from '@/constants';
-import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
-import nextWithApollo from 'next-with-apollo';
-import { Router } from 'next/router';
+import { ApolloClient, ApolloLink, HttpLink, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { onError } from '@apollo/client/link/error';
+import { notifications } from 'components-next';
+import { withApollo } from 'next-apollo';
 
-const withApollo = nextWithApollo(
-  ({ initialState, headers }) => {
-    return new ApolloClient({
-      ssrMode: typeof window === 'undefined',
-      link: new HttpLink({
-        uri: CREDENTIAL.GRAPHQL_API_ENDPOINT,
-      }),
-      headers: {
-        ...(headers as Record<string, string>),
-      },
-      cache: new InMemoryCache().restore(initialState || {}),
-    });
+export const cache: InMemoryCache = new InMemoryCache({ addTypename: false });
+const isDev = process.env.NODE_ENV === 'development';
+
+const httpLink = new HttpLink({
+  uri: CREDENTIAL.GRAPHQL_API_ENDPOINT,
+  headers: {
+    // Authorization: `Bearer qq`,
   },
-  {
-    render: ({ Page, props }) => {
-      return (
-        <ApolloProvider client={props.apollo}>
-          <Page {...props} {...Router} />
-        </ApolloProvider>
-      );
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      // 'x-api-key': 'ss',
+      // Authorization: `Bearer sss`,
     },
-  },
-);
+  };
+});
 
-export default withApollo;
+const client = new ApolloClient({
+  cache,
+  link: ApolloLink.from([
+    // eslint-disable-next-line consistent-return
+    onError(({ graphQLErrors, networkError }) => {
+      const err =
+        graphQLErrors &&
+        (graphQLErrors?.[0]?.extensions
+          ?.response as unknown as typeof graphQLErrors[0]['extensions'] & {
+          message: string;
+          error: string;
+          statusCode: number;
+        });
+      notifications.error({
+        message: err?.error,
+        description: err?.message,
+      });
+
+      if (networkError) {
+        return console.log(`[Network error]: ${networkError}`);
+      }
+    }),
+    authLink.concat(httpLink),
+  ]),
+  connectToDevTools: isDev,
+  defaultOptions: {
+    mutate: { errorPolicy: 'all' },
+    watchQuery: { errorPolicy: 'all' },
+  },
+});
+
+export default withApollo(client);

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { changeI18n } from '@/locales';
+
+import { useSettingsStore } from '@/stores';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
@@ -7,6 +8,7 @@ import React, { useMemo } from 'react';
 export const NarBar = (props) => {
   // console.log('props', props);
   const { push } = useRouter();
+  const { changeI18n } = useSettingsStore();
 
   const menu = [
     {
@@ -14,7 +16,7 @@ export const NarBar = (props) => {
       path: '/',
     },
     {
-      name: 'About',
+      name: 'Sub Page',
       path: '/about',
     },
   ];

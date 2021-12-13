@@ -1,7 +1,9 @@
 import i18n, { StringMap, TOptionsBase } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { initReactI18next, TFuncKey, useTranslation } from 'react-i18next';
+import { initReactI18next, TFuncKey } from 'react-i18next';
 import * as resources from './resources';
+
+type I18nKey = keyof typeof resources;
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -32,19 +34,7 @@ i18n
     ns: ['translation'],
   });
 
-/**
- * translate i18n
- * @param key
- * @param options
- * @returns
- */
-export const t = (key: TFuncKey, options?: TOptionsBase & StringMap) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t: tr } = useTranslation();
-  return tr(key, options);
-};
+export { resources };
+export type { StringMap, TOptionsBase, TFuncKey, I18nKey };
 
-export function changeI18n(key: keyof typeof resources) {
-  i18n.changeLanguage(key);
-}
 export default i18n;

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Layout, Section } from '@/components/module';
+import { Section } from '@/components/module';
+import Layout from '@/components/module/Layout';
 import { useDemoStore } from '@/stores';
 import { Button } from 'components-next/lib';
 import React from 'react';
