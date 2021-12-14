@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _ahooks = require("ahooks");
+var _lodash = require("lodash");
 
 var _ = require("../..");
 
@@ -36,7 +36,7 @@ var Button = function Button(props) {
    */
 
 
-  var renderVariant = (0, _ahooks.useCreation)(function () {
+  var renderVariant = function renderVariant() {
     //------- primaryColor ----------
     var primaryColor = (0, _.tw)({
       primary: 'bg-blue-500 hover:bg-blue-600  focus:ring-blue-200',
@@ -59,11 +59,12 @@ var Button = function Button(props) {
       outline: outlineColor[color]
     };
     return variantType === null || variantType === void 0 ? void 0 : variantType[variant];
-  }, [color, variant]);
+  };
+
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button"
-  }, rest, {
-    className: (0, _.clx)('text-white focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 text-center', renderVariant, className)
+  }, (0, _lodash.omit)(rest, 'variant', 'color'), {
+    className: (0, _.clx)('text-white focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 text-center', renderVariant(), className)
   }), children || title);
 };
 

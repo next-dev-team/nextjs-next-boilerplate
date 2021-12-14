@@ -13,15 +13,7 @@ exports.default = void 0;
 
 var _select = _interopRequireDefault(require("./select1"));
 
-function _rcSelect() {
-  const data = _interopRequireWildcard(require("rc-select"));
-
-  _rcSelect = function _rcSelect() {
-    return data;
-  };
-
-  return data;
-}
+var _rcSelect = _interopRequireWildcard(require("rc-select"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -31,8 +23,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //  =================== ecommerce ===================
 var _default = {
-  OptGroup: _rcSelect().OptGroup,
-  Option: _rcSelect().Option,
-  RcSelect: _rcSelect().default
+  OptGroup: _rcSelect.OptGroup,
+  Option: _rcSelect.Option,
+  RcSelect: _rcSelect.default
 };
 exports.default = _default;

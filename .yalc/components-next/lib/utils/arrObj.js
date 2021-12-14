@@ -8,25 +8,9 @@ exports.getNotNullVal = getNotNullVal;
 exports.getStringVal = getStringVal;
 exports.tw3 = exports.tw2 = exports.tw1 = exports.tw = void 0;
 
-function _classnames() {
-  const data = _interopRequireDefault(require("classnames"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
-  _classnames = function _classnames() {
-    return data;
-  };
-
-  return data;
-}
-
-function _tailwindOverride() {
-  const data = require("tailwind-override");
-
-  _tailwindOverride = function _tailwindOverride() {
-    return data;
-  };
-
-  return data;
-}
+var _tailwindOverride = require("tailwind-override");
 
 var _lodash = require("./lodash");
 
@@ -38,13 +22,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @returns
  */
 const clx = (...rest) => {
-  return (0, _tailwindOverride().overrideTailwindClasses)((0, _classnames().default)(rest));
+  return (0, _tailwindOverride.overrideTailwindClasses)((0, _classnames.default)(rest));
 };
 
 exports.clx = clx;
 
 const clxx = (...rest) => {
-  return (0, _tailwindOverride().overrideTailwindClasses)((0, _classnames().default)(rest));
+  return (0, _tailwindOverride.overrideTailwindClasses)((0, _classnames.default)(rest));
 }; //  the class tw suggestion only one time per file so I need to create it n time
 
 
@@ -57,13 +41,13 @@ const clx3 = clx;
 exports.clx3 = clx3;
 
 const cls = (...rest) => {
-  return (0, _classnames().default)(rest);
+  return (0, _classnames.default)(rest);
 };
 
 exports.cls = cls;
 
 const cl = (...rest) => {
-  return (0, _classnames().default)(rest);
+  return (0, _classnames.default)(rest);
 };
 /**
  * get suggestion tw class in vs-code setting.json

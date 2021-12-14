@@ -5,25 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-function _ahooks() {
-  const data = require("ahooks");
+var _ahooks = require("ahooks");
 
-  _ahooks = function _ahooks() {
-    return data;
-  };
-
-  return data;
-}
-
-function _lodash() {
-  const data = require("lodash");
-
-  _lodash = function _lodash() {
-    return data;
-  };
-
-  return data;
-}
+var _lodash = require("lodash");
 
 const useFormUtil = props => {
   const _ref = props || {},
@@ -35,7 +19,7 @@ const useFormUtil = props => {
    */
 
 
-  const onClickFormSubmit = (0, _ahooks().useMemoizedFn)(() => {
+  const onClickFormSubmit = (0, _ahooks.useMemoizedFn)(() => {
     var _children$props;
 
     if (typeof children === 'object' && (children === null || children === void 0 ? void 0 : (_children$props = children.props) === null || _children$props === void 0 ? void 0 : _children$props.type) === 'number') {
@@ -45,7 +29,7 @@ const useFormUtil = props => {
       form.setFieldsValue({
         [children === null || children === void 0 ? void 0 : (_children$props3 = children.props) === null || _children$props3 === void 0 ? void 0 : _children$props3.name]: !!fieldVal ? Number(fieldVal) : ''
       });
-    } else if ((0, _lodash().isArray)(children)) {
+    } else if ((0, _lodash.isArray)(children)) {
       children.map(i => {
         var _i$props;
 
