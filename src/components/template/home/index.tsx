@@ -3,11 +3,14 @@ import { useDemoStore, useSettingsStore } from '@/stores';
 import { Button, Collapse, Panel } from 'components-next';
 import { isEmpty, omit } from 'lodash';
 import React from 'react';
+import { useI18nDemo } from './i18nNext';
 
 const IndexPageTemplate = () => {
   const demoStore = useDemoStore();
   const settingsStore = useSettingsStore();
-  const { t, changeI18n } = settingsStore || {};
+  const { t, changeI18n, activeLocale, currentLocale } = settingsStore;
+
+  console.log('settingsStore', settingsStore);
 
   const renderObj = Object.keys(omit(demoStore.postData, '__typename')).map((i, k) => {
     const objVal = Object.values(omit(demoStore.postData, '__typename'))[k];
@@ -18,24 +21,10 @@ const IndexPageTemplate = () => {
     );
   });
 
-  const demoData: { title?: any; content?: any }[] = [
-    {
-      title: 'Locale with i18nNext',
-      content: (
-        <div className="mt-20 text-center flex flex-col justify-center items-center">
-          <h1 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl text-center mb-6 mt-6 leading-10">
-            {t('example.helloUser', { name: ': Sila Love' })}
-          </h1>
-          <div className="flex items-center gap-4 mt-3">
-            <Button onClick={() => changeI18n('en')}>En</Button>
+  const i18nState = useI18nDemo({ t, changeI18n, currentLocale, activeLocale });
 
-            <Button color="success" onClick={() => changeI18n('km')}>
-              Km
-            </Button>
-          </div>
-        </div>
-      ),
-    },
+  const demoData: { title?: any; content?: any }[] = [
+    i18nState,
     {
       title: 'Apollo GraphQl',
       content: (

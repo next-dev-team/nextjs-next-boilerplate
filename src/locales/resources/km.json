@@ -8,5 +8,8 @@
         "labels": {
             "userId": "បញ្ចូលឈ្មោះអ្នកប្រើប្រាស់"
         }
+    },
+    "settings": {
+        "currentLanguage": "ភាសាបច្ចុប្បន្ន : {{locale}}"
     }
 }

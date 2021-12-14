@@ -1,7 +1,7 @@
-import i18n, { I18nKey, resources, StringMap, TOptionsBase } from '@/locales';
+import i18n, { I18nKey, resources } from '@/locales';
 import { Persistence } from '@/plugins';
 import { createState, useState } from '@hookstate/core';
-import { TFuncKey, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 type IInitStore = {
   colorScheme: 'dark' | 'light' | 'system';
@@ -30,15 +30,12 @@ export function useSettingsStore() {
     return state.colorScheme.set(theme?.[colorScheme]);
   };
 
-  const { t: tr } = useTranslation();
+  const { t } = useTranslation();
 
-  const t = (key: TFuncKey, options?: TOptionsBase & StringMap) => {
-    return tr(key, options);
-  };
-
-  function changeI18n(key: I18nKey) {
+  const changeI18n = (key: I18nKey) => {
+    state.currentLocale.set(key);
     i18n.changeLanguage(key);
-  }
+  };
 
   /**
    * persist
@@ -64,3 +61,5 @@ export function useSettingsStore() {
     changeI18n,
   } as const;
 }
+
+export type ISettingStore = Partial<ReturnType<typeof useSettingsStore>>;

@@ -1,0 +1,123 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.rc-input-number.warning {
+  @apply border-yellow-500 text-yellow-600;
+}
+.rc-input-number-focused.warning {
+  @apply ring-yellow-200;
+}
+.rc-input-number.error {
+  @apply border-red-500 text-red-600;
+}
+.error input::placeholder {
+  @apply text-red-600;
+}
+.rc-input-number-focused.error {
+  @apply ring-red-200;
+}
+
+.rc-input-number.success {
+  @apply border-green-500 text-green-600;
+}
+.rc-input-number-focused.success {
+  @apply ring-green-200;
+}
+.rc-input-number.success input::placeholder {
+  @apply text-green-600;
+}
+
+.rc-input-number {
+  @apply border rounded-lg  h-10 leading-10 m-0 p-0 align-middle;
+}
+
+.rc-input-number-focused {
+  @apply outline-none ring-2 ring-gray-200;
+}
+
+.rc-input-number-handler-up-inner,
+.rc-input-number-handler-down-inner {
+  color: #666666;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.rc-input-number-handler-up-inner:hover,
+.rc-input-number-handler-down-inner:hover {
+  @apply text-green-500;
+}
+.rc-input-number-out-of-range input {
+  @apply text-red-500;
+}
+.rc-input-number-handler {
+  @apply block h-5 leading-5 overflow-hidden text-center;
+}
+.rc-input-number-handler-active {
+  background: #ddd;
+}
+
+.rc-input-number:hover {
+}
+.rc-input-number:hover .rc-input-number-handler-up,
+.rc-input-number:hover .rc-input-number-handler-wrap {
+  @apply border-gray-300;
+}
+.rc-input-number-disabled:hover {
+  @apply border-gray-300;
+}
+.rc-input-number-disabled:hover .rc-input-number-handler-up,
+.rc-input-number-disabled:hover .rc-input-number-handler-wrap {
+  border-color: #d9d9d9;
+}
+.rc-input-number-input-wrap {
+  height: 100%;
+  overflow: hidden;
+}
+.rc-input-number-input {
+  @apply px-4 rounded-lg border-0 h-full leading-10 p-0 w-full;
+  outline: 0;
+  transition: all 0.3s;
+}
+.rc-input-number-handler-wrap {
+  @apply border-l border-gray-300 float-right h-full w-5;
+}
+.rc-input-number-handler-up {
+  padding-top: 1px;
+  transition: all 0.3s;
+
+  @apply border-b border-gray-300;
+}
+.rc-input-number-handler-up-inner:after {
+  content: '+';
+}
+.rc-input-number-handler-down {
+  transition: all 0.3s;
+}
+.rc-input-number-handler-down-inner:after {
+  content: '-';
+}
+.rc-input-number-handler-down-disabled,
+.rc-input-number-handler-up-disabled {
+  opacity: 0.3;
+}
+.rc-input-number-handler-down-disabled:hover,
+.rc-input-number-handler-up-disabled:hover {
+  @apply text-gray-400 border-gray-300;
+}
+.rc-input-number-disabled .rc-input-number-input {
+  @apply cursor-not-allowed opacity-70 bg-white;
+}
+.rc-input-number-disabled .rc-input-number-handler {
+  opacity: 0.3;
+}
+.rc-input-number-disabled .rc-input-number-handler:hover {
+  @apply bg-gray-400 border-gray-300;
+}

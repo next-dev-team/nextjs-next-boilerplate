@@ -8,5 +8,8 @@
         "labels": {
             "userId": "Enter a user id"
         }
+    },
+    "settings": {
+        "currentLanguage": "Current Language : {{locale}}"
     }
 }

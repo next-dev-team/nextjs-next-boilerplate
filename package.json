@@ -1,4 +1,5 @@
 {
+    "name": "nextjs-next-boilerplate",
     "author": "Sila Rim",
     "email": "rimsila.itc@gmail.com",
     "version": "1.0.0",
@@ -20,7 +21,9 @@
         "test": "jest --watch",
         "test:ci": "jest --ci",
         "docker-run": "docker run -p 3000:3000 nextjs-docker",
-        "docker-build": "docker build -t nextjs-docker ."
+        "docker-build": "docker build -t nextjs-docker .",
+        "ycom": "yalc add components-next --no-pure",
+        "ycom-update": "yalc update components-next --no-pure"
     },
     "dependencies": {
         "@ant-design/icons": "^4.7.0",
@@ -31,7 +34,7 @@
         "autoprefixer": "^10.4.0",
         "axios": "^0.24.0",
         "classnames": "^2.3.1",
-        "components-next": "^0.0.22",
+        "components-next": "file:.yalc/components-next",
         "dayjs": "^1.10.7",
         "graphql": "^16.0.1",
         "graphql-tag": "^2.12.6",
