@@ -6,7 +6,6 @@
     "private": true,
     "license": "MIT",
     "scripts": {
-        "preinstall": "yarn ycom",
         "dev": "next",
         "prod": "next start",
         "dev:gen": "yarn codegen &&  next",
