@@ -27,10 +27,11 @@ export function useSettingsStore() {
       light: 'light',
       system: 'system',
     } as Record<IInitStore['colorScheme'], IInitStore['colorScheme']>;
-    return state.colorScheme.set(theme?.[colorScheme]);
+
+    state.colorScheme.set(theme?.[colorScheme]);
   };
 
-  const { t } = useTranslation();
+  const tr = useTranslation();
 
   const changeI18n = (key: I18nKey) => {
     state.currentLocale.set(key);
@@ -57,7 +58,7 @@ export function useSettingsStore() {
     },
     setColorScheme,
     useTranslation,
-    t,
+    t: tr.t,
     changeI18n,
   } as const;
 }
