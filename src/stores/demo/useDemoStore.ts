@@ -34,21 +34,23 @@ export function useDemoStore() {
     loading: loadingAsyncName,
     refresh: refetchAsyncName,
     mutate: clearAsyncName,
-  } = useRequest(getAsyncNameService, { cacheKey: 'cache-demo', staleTime: 1000 });
+  } = useRequest(getAsyncNameService, { cacheKey: 'cache-demo' });
 
   /**
    * with GraphQl useQuery
    */
-  const { data: postData, loading: loadingPostData } = usePostQuery({
-    variables: { ...state.variablesPosts.get() } as unknown as PostQueryVariables,
+  const {
+    data: postData,
+    loading: loadingPostData,
+    refetch: refetchPostData,
+  } = usePostQuery({
+    variables: { ...state.variablesPosts.value } as unknown as PostQueryVariables,
   });
 
   /**
    * persist
    */
-  state.attach(
-    Persistence('useDemoStore', ['counter', 'asyncNameAxios', 'variablesPosts'], state.value),
-  );
+  state.attach(Persistence('useDemoStore', ['counter', 'variablesPosts'], state.value));
 
   return {
     /**
@@ -108,5 +110,6 @@ export function useDemoStore() {
      */
     loadingPostData: useCreation(() => loadingPostData, [loadingPostData]),
     postData: useCreation(() => postData?.post, [postData]),
+    refetchPostData,
   } as const;
 }

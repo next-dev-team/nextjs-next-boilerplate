@@ -1,6 +1,6 @@
 {
     "name": "components-next",
-    "version": "0.0.22",
+    "version": "0.0.22+7c65a189",
     "description": "",
     "main": "lib",
     "files": [
@@ -43,5 +43,5 @@
     "peerDependencies": {
         "lodash": ">=4"
     },
-    "yalcSig": "18bf01dc25dce27f053e75271b6c965c"
+    "yalcSig": "7c65a189278248b38372089241468892"
 }

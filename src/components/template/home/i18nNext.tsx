@@ -1,13 +1,9 @@
-import { ISettingStore } from '@/stores';
+import { useSettingsStore } from '@/stores';
 import { Button } from 'components-next/lib';
 import { upperCase } from 'lodash';
 
-type II18nDemo = Pick<ISettingStore, 'currentLocale' | 't' | 'changeI18n'>;
-
-export const useI18nDemo = (props: II18nDemo) => {
-  const { t, changeI18n, currentLocale } = props || {};
-
-  console.log('currentLocale', currentLocale);
+export const useI18nDemo = () => {
+  const { currentLocale, changeI18n, t } = useSettingsStore();
 
   return {
     title: 'Locale with i18nNext',

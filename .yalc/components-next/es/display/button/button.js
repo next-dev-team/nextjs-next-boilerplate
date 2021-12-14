@@ -7,7 +7,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 import React from "react";
-import { omit } from 'lodash';
+import { useCreation } from 'ahooks';
 import { cl, cls, clx, tw, tw1 } from '../..';
 
 var Button = function Button(props) {
@@ -25,7 +25,7 @@ var Button = function Button(props) {
    */
 
 
-  var renderVariant = function renderVariant() {
+  var renderVariant = useCreation(function () {
     //------- primaryColor ----------
     var primaryColor = tw({
       primary: 'bg-blue-500 hover:bg-blue-600  focus:ring-blue-200',
@@ -48,12 +48,11 @@ var Button = function Button(props) {
       outline: outlineColor[color]
     };
     return variantType === null || variantType === void 0 ? void 0 : variantType[variant];
-  };
-
+  }, [color]);
   return /*#__PURE__*/React.createElement("button", _extends({
     type: "button"
-  }, omit(rest, 'variant', 'color'), {
-    className: clx('text-white focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 text-center', renderVariant(), className)
+  }, rest, {
+    className: clx('text-white focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 text-center', renderVariant, className)
   }), children || title);
 };
 

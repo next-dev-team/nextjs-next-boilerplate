@@ -10,5 +10,8 @@ export declare type IButton = {
     title?: string;
     color?: IType;
 } & Omit<ButtonHTMLAttributes<any>, 'color'>;
-declare const Button: (props: IButton) => JSX.Element;
+declare const Button: {
+    (props: IButton): JSX.Element;
+    displayName: string;
+};
 export default Button;

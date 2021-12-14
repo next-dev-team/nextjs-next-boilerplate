@@ -21,6 +21,8 @@ var _componentsNext = require("components-next");
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactElementToJsxString = _interopRequireDefault(require("react-element-to-jsx-string"));
+
 var _reactSyntaxHighlighter = require("react-syntax-highlighter");
 
 var _hljs = require("react-syntax-highlighter/dist/esm/styles/hljs");
@@ -130,8 +132,7 @@ var DemoLayout = function DemoLayout(props) {
     gutter: gutter,
     justify: (0, _componentsNext._isEmpty)(itemData) ? 'center' : 'start'
   }, (0, _componentsNext._isEmpty)(itemData) && /*#__PURE__*/_react.default.createElement(_antd.Empty, null), itemData === null || itemData === void 0 ? void 0 : (_itemData$map = itemData.map) === null || _itemData$map === void 0 ? void 0 : _itemData$map.call(itemData, function (i, k) {
-    // console.log("i", reactElementToJSXString(i.component as any, {}));
-    var code = 'working on it soon';
+    var code = (0, _reactElementToJsxString.default)(i.component);
 
     var copyCode = /*#__PURE__*/_react.default.createElement(_Text.default, {
       copyable: {

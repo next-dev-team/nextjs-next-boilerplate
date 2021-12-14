@@ -2,13 +2,14 @@
 
 import { useSettingsStore } from '@/stores';
 import classNames from 'classnames';
+import { Button } from 'components-next/lib';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 
 export const NarBar = (props) => {
   // console.log('props', props);
   const { push } = useRouter();
-  const { changeI18n } = useSettingsStore();
+  const { changeI18n, currentLocale } = useSettingsStore();
 
   const menu = [
     {
@@ -58,20 +59,18 @@ export const NarBar = (props) => {
               </ul>
               {/* Header Icons */}
               <div className="hidden xl:flex items-center space-x-5">
-                <button
-                  type="button"
+                <Button
+                  variant={currentLocale === 'en' ? 'primary' : 'outline'}
                   onClick={() => changeI18n('en')}
-                  className=" py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  English
-                </button>
-                <button
-                  type="button"
+                  En
+                </Button>
+                <Button
+                  variant={currentLocale === 'km' ? 'primary' : 'outline'}
                   onClick={() => changeI18n('km')}
-                  className=" py-2 px-4  bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
-                  Khmer
-                </button>
+                  Km
+                </Button>
                 <a className="hover:text-gray-200" href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

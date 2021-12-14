@@ -58,7 +58,7 @@ var Button = function Button(props) {
       primary: primaryColor[color],
       outline: outlineColor[color]
     };
-    return variantType === null || variantType === void 0 ? void 0 : variantType[variant];
+    return variantType[variant];
   };
 
   return /*#__PURE__*/_react.default.createElement("button", _extends({
@@ -68,5 +68,6 @@ var Button = function Button(props) {
   }), children || title);
 };
 
+Button.displayName = 'Button';
 var _default = Button;
 exports.default = _default;

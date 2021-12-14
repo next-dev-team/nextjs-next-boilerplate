@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === 'development';
 exports.isDev = isDev;
 const isProd = process.env.NODE_ENV === 'production';
 exports.isProd = isProd;
-const isBrowser = process.env.BROWSER;
+const isBrowser = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.isBrowser = isBrowser;
 const isSsr = !isBrowser;
 exports.isSsr = isSsr;

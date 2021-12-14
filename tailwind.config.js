@@ -1,8 +1,9 @@
+const colors = require('tailwindcss/colors');
+
 // tailwind.config.js
 module.exports = {
-  mode: 'jit',
   darkMode: 'class',
-  purge: [
+  content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
     './node_modules/components-next/lib/**/*.{js,ts,jsx,tsx}',
@@ -10,11 +11,17 @@ module.exports = {
     './node_modules/components-next/*/*.{js,ts,jsx,tsx}',
 
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-};
+    extend: {
+      colors: {
+        green: colors.emerald,
+        yellow: colors.amber,
+        purple: colors.violet,
+        gray: colors.neutral,
+      },
+    },
+    variants: {
+      extend: {},
+    },
+  }
+}
