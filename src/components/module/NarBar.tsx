@@ -2,25 +2,28 @@
 
 import { useSettingsStore } from '@/stores';
 import classNames from 'classnames';
-import { Button } from 'components-next/lib';
+import { Button } from 'components-next';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 
 export const NarBar = (props) => {
   // console.log('props', props);
   const { push } = useRouter();
-  const { changeI18n, currentLocale } = useSettingsStore();
+  const { changeI18n, currentLocale, t } = useSettingsStore();
 
-  const menu = [
-    {
-      name: 'Home',
-      path: '/',
-    },
-    {
-      name: 'Sub Page',
-      path: '/about',
-    },
-  ];
+  const menu = useMemo(
+    () => [
+      {
+        name: t('menu.home'),
+        path: '/',
+      },
+      {
+        name: 'Sub Page',
+        path: '/about',
+      },
+    ],
+    [t],
+  );
 
   const getPathRoute = useMemo(
     () => menu?.find((i) => i.path === props?.asPath),
@@ -46,11 +49,11 @@ export const NarBar = (props) => {
                     <li
                       key={i.path}
                       className={classNames(
-                        'border-b-2  p-2',
+                        'border-b-2 p-2',
                         getPathRoute?.path === i.path ? 'border-white' : 'border-none',
                       )}
                     >
-                      <a className="hover:text-gray-200" onClick={() => push(i.path)}>
+                      <a className="hover:text-gray-200 capitalize" onClick={() => push(i.path)}>
                         {i.name}
                       </a>
                     </li>

@@ -20,7 +20,11 @@ const Layout = ({ children, pageTitle = '', className, childrenOnly }: ILayout) 
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <div className={clx('bg-gray-50 sm:pt-82px pt-76px  min-h-vh-45', className)}>{children}</div>
+      <div
+        className={clx('bg-blue-100 dark:bg-gray-600 sm:pt-82px pt-76px min-h-[88.2vh]', className)}
+      >
+        {children}
+      </div>
     </>
   );
 };

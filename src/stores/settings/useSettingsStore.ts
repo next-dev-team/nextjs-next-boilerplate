@@ -1,6 +1,5 @@
+import { createStore, usePersistStore } from '@/hooks';
 import i18n, { I18nKey, resources } from '@/locales';
-import { Persistence } from '@/plugins';
-import { createState, useState } from '@hookstate/core';
 import { useTranslation } from 'react-i18next';
 
 type IInitStore = {
@@ -8,18 +7,22 @@ type IInitStore = {
 };
 
 const initStore = {
-  colorScheme: 'light' as IInitStore['colorScheme'],
+  colorScheme: 'light',
   i18nItem: Object.keys(resources).map((i) => i),
-  currentLocale: 'en' as I18nKey,
+  currentLocale: 'en',
 };
 
-const store = createState(initStore);
+type IStore = IInitStore & typeof initStore;
+type IStoreKey = keyof IStore;
+
+const store = createStore(initStore);
 
 export function useSettingsStore() {
-  /**
-   * with hookstate
-   */
-  const state = useState(store);
+  const { state } = usePersistStore<IStoreKey, IStore>({
+    key: 'useSettingsStore',
+    store,
+    whiteList: ['colorScheme'],
+  });
 
   const setColorScheme = (colorScheme: IInitStore['colorScheme'] = 'light') => {
     const theme = {
@@ -31,17 +34,10 @@ export function useSettingsStore() {
     state.colorScheme.set(theme?.[colorScheme]);
   };
 
-  const tr = useTranslation();
-
   const changeI18n = (key: I18nKey) => {
     state.currentLocale.set(key);
     i18n.changeLanguage(key);
   };
-
-  /**
-   * persist
-   */
-  state.attach(Persistence('useSettingsStore', ['colorScheme'], state.value));
 
   return {
     /**
@@ -58,7 +54,7 @@ export function useSettingsStore() {
     },
     setColorScheme,
     useTranslation,
-    t: tr.t,
+    t: useTranslation().t,
     changeI18n,
   } as const;
 }

@@ -13,7 +13,7 @@ const PluginID = Symbol('LocalPersistence');
  */
 export function Persistence(
   localStorageKey: string,
-  whiteList: string[],
+  whiteList: any[],
   prevState: StateValueAtRoot,
 ): () => Plugin {
   const newKey = localStorageKey;

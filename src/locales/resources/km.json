@@ -11,5 +11,8 @@
     },
     "settings": {
         "currentLanguage": "ភាសាបច្ចុប្បន្ន : {{locale}}"
+    },
+    "menu": {
+        "home": "ទំព័រដើម"
     }
 }
