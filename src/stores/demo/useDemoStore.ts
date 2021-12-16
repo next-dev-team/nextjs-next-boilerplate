@@ -1,7 +1,6 @@
 import { usePostQuery } from '@/graphQl/hooks';
 import { PostQuery, PostQueryVariables } from '@/graphQl/operations';
-import { Persistence } from '@/plugins';
-import { createState, useState } from '@hookstate/core';
+import { createStore, usePersistStore } from '@/hooks';
 import { useCreation, useRequest } from 'ahooks';
 import { AxiosResponse } from 'axios';
 import { getAsyncNameGraph, getAsyncNameService } from './service';
@@ -18,13 +17,16 @@ const initStore = {
   },
 };
 
-const demoStore = createState(initStore);
+type IStore = typeof initStore;
+type IStoreKey = keyof IStore;
 
+const store = createStore(initStore);
 export function useDemoStore() {
-  /**
-   * with hookstate
-   */
-  const state = useState(demoStore);
+  const { state } = usePersistStore<IStoreKey, IStore>({
+    key: 'useDemoStore',
+    store,
+    whiteList: ['counter', 'variablesPosts'],
+  });
 
   /**
    * with ahooks useRequest cache
@@ -46,11 +48,6 @@ export function useDemoStore() {
   } = usePostQuery({
     variables: { ...state.variablesPosts.value } as unknown as PostQueryVariables,
   });
-
-  /**
-   * persist
-   */
-  state.attach(Persistence('useDemoStore', ['counter', 'variablesPosts'], state.value));
 
   return {
     /**
