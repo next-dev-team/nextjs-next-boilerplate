@@ -4,7 +4,7 @@ export const useComponent = () => {
   const demoStore = useDemoStore();
 
   return {
-    title: 'Components',
+    title: 'Components (Layout, Section, component...)',
     content: (
       <div className="flex justify-center gap-20 text-center">
         <iframe

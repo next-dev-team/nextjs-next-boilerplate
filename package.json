@@ -24,7 +24,7 @@
         "docker-build": "docker build -t nextjs-docker .",
         "ycom": "yalc add components-next --no-pure",
         "ycom-update": "rm -rf yalc.lock && yalc update components-next --no-pure",
-        "clean:yalc": "rm -rf .yalc "
+        "clean:yalc": "rm -rf .yalc"
     },
     "dependencies": {
         "@ant-design/icons": "^4.7.0",
