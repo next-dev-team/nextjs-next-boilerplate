@@ -1,6 +1,7 @@
 import { Collapse, Panel } from 'components-next';
 import React from 'react';
 import { useApolloGraph } from './apolloGraph';
+import { useCodeConvention } from './codeConvention';
 import { useComponent } from './component';
 import { useDevNDeploy } from './dev&deploy';
 import { useEnv } from './env';
@@ -18,15 +19,17 @@ import { useUtils } from './utils';
 
 const IndexPageTemplate = () => {
   const demoData: { title?: any; content?: any }[] = [
-    useHook(),
     useReadme(),
-    useUtils(),
-    useStructure(),
-    useSetup(),
     useLibrary(),
-    useEnv(),
     useComponent(),
     useTailwind(),
+    useSetup(),
+    useEnv(),
+    useHook(),
+    useUtils(),
+    useStructure(),
+    useCodeConvention(),
+
     useI18nDemo(),
     useApolloGraph(),
     useStateManagement(),
