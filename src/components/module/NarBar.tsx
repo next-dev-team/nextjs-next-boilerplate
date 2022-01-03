@@ -176,7 +176,7 @@ export const NarBar = (props) => {
             title="Follow me on twitter"
             href="https://www.twitter.com/asad_codes"
             target="_blank"
-            className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
+            className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12" rel="noreferrer"
           >
             <img
               className="object-cover object-center w-full h-full rounded-full"
