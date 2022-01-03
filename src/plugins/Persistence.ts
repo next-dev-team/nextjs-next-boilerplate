@@ -32,14 +32,12 @@ export function Persistence(
             return {
               onSet: (p) => {
                 if ('state' in p) {
-                  let newState = {
+                  const newState = {
                     ...prevState.value,
                   };
                   whiteList.forEach((i) => {
                     newState[i] = p.state[i];
                   }),
-                    // console.log('in p', newState);
-
                     isEmpty(p.state) ? '' : setItem(newKey, JSON.stringify(newState));
                 } else {
                   removeItem(newKey);
