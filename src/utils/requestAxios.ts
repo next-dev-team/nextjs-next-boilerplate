@@ -30,18 +30,39 @@ instance.interceptors.request.use(
 // Add a response interceptor
 instance.interceptors.response.use(
   function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
+    console.log('response', response);
 
-    // if (response.data.error && +response.data.error !== 0) {
-    //   return Promise.reject(response.data);
+    // refresh token for graphQl
+    // if (
+    //   response?.status === 200 &&
+    //   response?.data?.errors?.[0]?.extensions?.response?.statusCode === 401
+    // ) {
+    //   return getAuthTokenApi().then((token) => {
+    //     if (response?.config?.headers && token?.data?.authToken) {
+    //       response.config.headers['x-api-key'] = token?.data?.authToken;
+    //     }
+    //     return axios.request(response.config);
+    //   });
     // }
+
     return response;
   },
   function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
 
+    // refresh token for rest
+    // if (
+    //   error?.status === 200 &&
+    //   error?.data?.errors?.[0]?.extensions?.response?.statusCode === 401
+    // ) {
+    //   return getAuthTokenApi().then((token) => {
+    //     if (error?.config?.headers && token?.data?.authToken) {
+    //       error.config.headers['x-api-key'] = token?.data?.authToken;
+    //     }
+    //     return axios.request(error.config);
+    //   });
+    // }
     return Promise.reject(error);
   },
 );
