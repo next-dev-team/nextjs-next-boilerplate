@@ -25,7 +25,7 @@ export function useDemoStore() {
   const { state } = usePersistStore<IStoreKey, IStore>({
     key: 'useDemoStore',
     store,
-    whiteList: ['counter', 'variablesPosts'],
+    whitelist: ['counter', 'variablesPosts'],
   });
 
   /**

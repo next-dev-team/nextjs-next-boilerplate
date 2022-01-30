@@ -21,7 +21,7 @@ export function useSettingsStore() {
   const { state } = usePersistStore<IStoreKey, IStore>({
     key: 'useSettingsStore',
     store,
-    whiteList: ['colorScheme'],
+    whitelist: ['colorScheme', 'currentLocale'],
   });
 
   const setColorScheme = (colorScheme: IInitStore['colorScheme'] = 'light') => {

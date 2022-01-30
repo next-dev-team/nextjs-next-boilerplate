@@ -1,11 +1,11 @@
-import { Persistence } from '@/plugins';
+import { persistence } from '@/plugins';
 import { createState, useState } from '@hookstate/core';
-import { useMount } from 'ahooks';
 
 type IPersistStore<E> = {
   store: any;
   key: string;
-  whiteList: E[];
+  whitelist?: E[];
+  blacklist?: E[];
 };
 
 /**
@@ -13,12 +13,10 @@ type IPersistStore<E> = {
  *  @usage - before render
  *  persistStore({ key: 'useSettingsStore', state, whitelist: ['counter'] });
  */
-export const usePersistStore = <E, S>({ store, key, whiteList }: IPersistStore<E>) => {
+export const usePersistStore = <E, S>({ store, key, whitelist, blacklist }: IPersistStore<E>) => {
   const state = useState(store as S);
 
-  useMount(() => {
-    state.attach(Persistence(key, whiteList, store));
-  });
+  state.attach(persistence(key, whitelist, blacklist));
 
   return {
     state,
