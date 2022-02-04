@@ -21,6 +21,7 @@ Router.events.on('routeChangeStart', () => {
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps, router }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { online } = isBrowser ? useNetwork() : (false as NetworkState);
 
   useDarkMode();

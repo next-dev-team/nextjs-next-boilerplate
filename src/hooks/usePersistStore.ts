@@ -1,11 +1,16 @@
 import { persistence } from '@/plugins';
+import { removeItem } from '@/utils';
 import { createState, useHookstate } from '@hookstate/core';
 import { useUpdateEffect } from 'ahooks';
 import { isDev } from 'components-next/lib';
+import { isEmpty } from 'lodash';
 
 type IPersistStore<E> = {
   store: any;
   key: string;
+  /**
+   *  if we want to get new init value plz remove whitelist key want to change then add it again to make
+   */
   whitelist?: E[];
   blacklist?: E[];
   isDebug?: boolean;
@@ -24,13 +29,23 @@ export const useGlobalStore = <E, S>({
   blacklist,
   isDebug,
 }: IPersistStore<E>) => {
+  const isDebugMode = isDebug && isDev;
   const state = useHookstate(store as S);
 
-  state.attach(persistence(key, whitelist, blacklist));
+  //if whitelist or blacklist will use persist func
+  if ((!isEmpty(whitelist) || !isEmpty(blacklist)) && key) {
+    state.attach(persistence(key, whitelist, blacklist));
+  } else {
+    removeItem(key);
+    if (isDebugMode) {
+      console.log('removeItem ===> ' + key);
+    }
+  }
 
+  //logger store
   useUpdateEffect(() => {
-    if (isDebug && isDev) {
-      console.log('state', state);
+    if (isDebugMode) {
+      console.log('store' + key, state);
     }
   }, [isDebug, state]);
 

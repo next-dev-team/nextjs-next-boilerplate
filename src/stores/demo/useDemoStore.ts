@@ -3,7 +3,6 @@ import { PostQuery, PostQueryVariables } from '@/graphQl/operations';
 import { createStore, useGlobalStore } from '@/hooks';
 import { useCreation, useRequest } from 'ahooks';
 import { AxiosResponse } from 'axios';
-import { clone, isEqual } from 'lodash';
 import { getAsyncNameGraph, getAsyncNameService } from './service';
 
 const initStore = {
@@ -11,7 +10,7 @@ const initStore = {
   variablesPosts: { id: 1 },
   asyncNameAxios: [] as PostQuery['post'][],
   loadingAsyncNameAxios: false,
-  counter: 1,
+  counter: 0,
   info: {
     a: 0,
     b: 1,
@@ -21,21 +20,14 @@ const initStore = {
 type IStore = typeof initStore;
 type IStoreKey = keyof IStore;
 
-const store = createStore(clone(initStore));
+const store = createStore(initStore);
 
 export function useDemoStore() {
   const { state } = useGlobalStore<IStoreKey, IStore>({
     key: 'useDemoStore',
     store,
-    whitelist: ['variablesPosts', 'counter'],
-    isDebug: false,
+    whitelist: ['counter', 'variablesPosts'],
   });
-
-  const myTarget = JSON.stringify(state.value);
-  const myTarget1 = JSON.stringify(initStore);
-  const check = isEqual(myTarget, myTarget1);
-
-  console.log('myTarget', check);
 
   /**
    * with ahooks useRequest cache

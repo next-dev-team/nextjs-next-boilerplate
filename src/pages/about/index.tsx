@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { Section } from '@/components/module';
 import Layout from '@/components/module/Layout';
+import { useApolloGraph } from '@/components/template/home/apolloGraph';
 import { useDemoStore } from '@/stores';
 import { Button } from 'components-next/lib';
 import React from 'react';
 
 const IndexPage = () => {
   const demoStore = useDemoStore();
+  const { content } = useApolloGraph();
 
   return (
     <Layout pageTitle="Home | Next.js + TypeScript Example">
@@ -41,6 +43,7 @@ const IndexPage = () => {
               </div>
             </div>
           </div>
+          {content}
         </div>
       </Section>
     </Layout>
