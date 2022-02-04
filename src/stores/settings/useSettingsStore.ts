@@ -1,4 +1,4 @@
-import { createStore, usePersistStore } from '@/hooks';
+import { createStore, useGlobalStore } from '@/hooks';
 import i18n, { I18nKey, resources } from '@/locales';
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +18,7 @@ type IStoreKey = keyof IStore;
 const store = createStore(initStore);
 
 export function useSettingsStore() {
-  const { state } = usePersistStore<IStoreKey, IStore>({
+  const { state } = useGlobalStore<IStoreKey, IStore>({
     key: 'useSettingsStore',
     store,
     whitelist: ['colorScheme', 'currentLocale'],

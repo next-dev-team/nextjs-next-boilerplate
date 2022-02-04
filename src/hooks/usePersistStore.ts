@@ -17,7 +17,7 @@ type IPersistStore<E> = {
  *  persistStore({ key: 'useSettingsStore', state, whitelist: ['counter'] });
  */
 
-export const usePersistStore = <E, S>({
+export const useGlobalStore = <E, S>({
   store,
   key,
   whitelist,
