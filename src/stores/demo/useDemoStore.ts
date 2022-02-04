@@ -21,11 +21,13 @@ type IStore = typeof initStore;
 type IStoreKey = keyof IStore;
 
 const store = createStore(initStore);
+
 export function useDemoStore() {
   const { state } = usePersistStore<IStoreKey, IStore>({
     key: 'useDemoStore',
     store,
-    whitelist: ['counter', 'variablesPosts'],
+    whitelist: ['variablesPosts', 'counter'],
+    isDebug: true,
   });
 
   /**
