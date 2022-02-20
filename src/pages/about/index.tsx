@@ -12,7 +12,7 @@ const IndexPage = () => {
 
   return (
     <Layout pageTitle="Home | Next.js + TypeScript Example">
-      <Section>
+      <Section hasMt>
         <div className="flex justify-center gap-20 text-center">
           <div className="border p-4 rounded-md">
             <h4>Counter</h4>

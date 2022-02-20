@@ -48,10 +48,15 @@
         "react-dom": "^17.0.2",
         "react-i18next": "11.11.1",
         "tailwind-override": "^0.5.0",
-        "tailwindcss": "^3.0.8"
+        "tailwindcss": "^3.0.8",
+        "rc-dropdown": "^3.3.2",
+        "react-fast-compare": "^3.2.0",
+        "react-responsive": "^9.0.0-beta.6",
+        "nuka-carousel": "^4.8.4"
     },
     "devDependencies": {
         "@graphql-codegen/cli": "^2.3.1",
+        "@tailwindcss/line-clamp": "^0.3.1",
         "@graphql-codegen/import-types-preset": "^2.1.9",
         "@graphql-codegen/introspection": "^2.1.1",
         "@graphql-codegen/plugin-helpers": "^2.3.2",

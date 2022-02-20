@@ -7,7 +7,7 @@ export const localStorageSsr = isBrowser ? localStorage : ((() => {}) as undefin
 
 export const getItem = (key: string) => {
   const getLs = localStorageSsr?.getItem?.(key);
-  const result = getLs !== null ? JSON.parse(getLs) : null;
+  const result = getLs ? JSON.parse(getLs) : null;
   return result;
 };
 

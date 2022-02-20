@@ -1,3 +1,3 @@
 export * from './Layout';
-export * from './NarBar';
-export { default as Section } from './Section';
+export { default as NarBar } from './NarBar';
+export { Section } from './Section';

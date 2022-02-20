@@ -1,3 +1,4 @@
+import { Section } from '@/components/module';
 import { Collapse, Panel } from 'components-next';
 import React from 'react';
 import { useApolloGraph } from './apolloGraph';
@@ -39,7 +40,7 @@ const IndexPageTemplate = () => {
   ];
 
   return (
-    <>
+    <Section hasMt bgTransparent>
       <Collapse accordion>
         {demoData.map((i) => {
           return (
@@ -51,7 +52,7 @@ const IndexPageTemplate = () => {
       </Collapse>
 
       {/* <div className="mt-32">{demoData[1].content}</div> */}
-    </>
+    </Section>
   );
 };
 

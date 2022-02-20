@@ -1,3 +1,4 @@
+import { useRoutes } from '@/hooks/useRoutes';
 import { clx } from '@/utils';
 import Head from 'next/head';
 import type { ReactNode } from 'react';
@@ -11,17 +12,34 @@ export type ILayout = {
 };
 
 const Layout = ({ children, pageTitle = '', className, childrenOnly }: ILayout) => {
+  const { pathname } = useRoutes();
+  const newPageTitle = pathname.replace('/', '') || pageTitle;
+
+  const head = (
+    <Head>
+      <title>
+        soon {newPageTitle && '|'} {newPageTitle}
+      </title>
+    </Head>
+  );
+
   if (childrenOnly) {
-    return <span className={className}>{children}</span>;
+    return (
+      <span className={className}>
+        {head}
+        {children}
+      </span>
+    );
   }
 
   return (
     <>
-      <Head>
-        <title>{pageTitle}</title>
-      </Head>
+      {head}
       <div
-        className={clx('bg-blue-100 dark:bg-gray-600 sm:pt-82px pt-76px min-h-[88.2vh]', className)}
+        className={clx(
+          'bg-white dark:bg-gray-600 sm:pt-[72px] pt-[60px] min-h-[88.2vh]',
+          className,
+        )}
       >
         {children}
       </div>
