@@ -25,10 +25,10 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
-"@apollo/client@^3.5.6":
-  version "3.5.6"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.5.6.tgz#911929df073280689efd98e5603047b79e0c39a2"
-  integrity sha512-XHoouuEJ4L37mtfftcHHO1caCRrKKAofAwqRoq28UQIPMJk+e7n3X9OtRRNXKk/9tmhNkwelSary+EilfPwI7A==
+"@apollo/client@^3.5.9":
+  version "3.5.9"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.5.9.tgz#306c1f8453d56dbb4ff1afaaaf16b3b719db696c"
+  integrity sha512-Qq3OE3GpyPG2fYXBzi1n4QXcKZ11c6jHdrXK2Kkn9SD+vUymSrllXsldqnKUK9tslxKqkKzNrkCXkLv7PxwfSQ==
   dependencies:
     "@graphql-typed-document-node/core" "^3.0.0"
     "@wry/context" "^0.6.0"
@@ -1927,10 +1927,10 @@
     "@typescript-eslint/types" "5.12.0"
     eslint-visitor-keys "^3.0.0"
 
-"@umijs/fabric@^2.10.1":
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/@umijs/fabric/-/fabric-2.10.1.tgz#4d56243d175c85acc12efefc2b47772f051da14e"
-  integrity sha512-loRxdPvqyGleywhC1Ms0lHf8OUpjAM09GeGkadKpftvepRaWXyfxV+vynKWMY3es3JZqbhyCDSPmcxBZJSn0qw==
+"@umijs/fabric@^2.10.2":
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@umijs/fabric/-/fabric-2.10.2.tgz#eb9337fe53218d4df57ee6d263d43cd8602d308e"
+  integrity sha512-X0mRa6sH/R6TmgtxwtUyGNjpN8zqhptUpktYDtwqbLt8yJSqsukCuO9zamFzLhEJj12ZFsABT6pCjeQWfl8DKQ==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/eslint-parser" "^7.12.1"
