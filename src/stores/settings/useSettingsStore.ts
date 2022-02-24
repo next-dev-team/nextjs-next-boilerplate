@@ -1,5 +1,5 @@
 import { getRouteName, OPTIONS, ROUTE } from '@/constants';
-import { createStore, useGlobalStore } from '@/hooks';
+import { createStore, useGlobalStore, useI18n } from '@/hooks';
 import i18n, { I18nKey, resources } from '@/locales';
 import { useMemoizedFn } from 'ahooks';
 import { useMemo } from 'react';
@@ -27,7 +27,8 @@ export function useSettingsStore() {
     store,
     whitelist: ['colorScheme', 'currentLocale', 'i18nOption'],
   });
-  const t = useTranslation().t;
+  const { t } = useI18n();
+
   const isDarkMode = state.colorScheme.get() === 'dark';
   const isLightMode = state.colorScheme.get() === 'light';
 

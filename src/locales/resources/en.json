@@ -13,6 +13,7 @@
         "currentLanguage": "Current Language : {{locale}}"
     },
     "menu": {
-        "home": "home"
+        "home": "home",
+        "about": "about"
     }
 }

@@ -1,25 +1,19 @@
-
 # more config option https://www.graphql-code-generator.com/docs/generated-config/typescript
 
 # Endpoint API, the following URL is a example
 schema: ${NEXT_PUBLIC_GRAPHQL_API_ENDPOINT}
 overwrite: true
 
-# Format files
-hooks:
-  afterAllFileWrite:
-    - prettier --write
-
 generates:
   # Get schemas from server
   src/graphQl/schemas.tsx:
-    documents: 'src/**/**.gql'
+    documents: "src/**/**.gql"
     plugins:
       - typescript
 
   # Create operations based on queries
   src/graphQl/operations.tsx:
-    documents: 'src/**/**.gql'
+    documents: "src/**/**.gql"
     preset: import-types
     presetConfig:
       typesPath: ./schemas
@@ -29,7 +23,7 @@ generates:
   # 1. Export GraphQL documents
   # 2. React interface
   src/graphQl/hooks.tsx:
-    documents: 'src/**/**.gql'
+    documents: "src/**/**.gql"
     preset: import-types
     presetConfig:
       typesPath: ./operations
@@ -45,3 +39,7 @@ generates:
       disableDescriptions: true
       maybeValue: T | null | undefined
       enumsAsTypes: true
+# Format files
+hooks:
+  afterAllFileWrite:
+    - prettier --write

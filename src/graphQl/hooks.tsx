@@ -2,7 +2,7 @@ import * as Types from './operations';
 
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
-const defaultOptions = {};
+const defaultOptions = {} as const;
 
 export const PostDocument = gql`
   query post($id: ID!) {

@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps, router }) {
     } else {
       notifications.close('offline');
     }
-  }, [!online]);
+  }, [online]);
 
   return (
     <FormProvider>

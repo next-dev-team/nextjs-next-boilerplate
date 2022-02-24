@@ -6,13 +6,10 @@ export type PostQueryVariables = Types.Exact<{
 
 export type PostQuery = {
   __typename?: 'Query';
-  post?:
-    | {
-        __typename?: 'Post';
-        id?: string | null | undefined;
-        title?: string | null | undefined;
-        body?: string | null | undefined;
-      }
-    | null
-    | undefined;
+  post?: {
+    __typename?: 'Post';
+    id?: string | null;
+    title?: string | null;
+    body?: string | null;
+  } | null;
 };

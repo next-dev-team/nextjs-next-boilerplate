@@ -1,4 +1,5 @@
 export type Maybe<T> = T | null;
+export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -23,11 +24,11 @@ export type Address = {
 };
 
 export type AddressInput = {
-  city?: Maybe<Scalars['String']>;
-  geo?: Maybe<GeoInput>;
-  street?: Maybe<Scalars['String']>;
-  suite?: Maybe<Scalars['String']>;
-  zipcode?: Maybe<Scalars['String']>;
+  city?: InputMaybe<Scalars['String']>;
+  geo?: InputMaybe<GeoInput>;
+  street?: InputMaybe<Scalars['String']>;
+  suite?: InputMaybe<Scalars['String']>;
+  zipcode?: InputMaybe<Scalars['String']>;
 };
 
 export type Album = {
@@ -39,7 +40,7 @@ export type Album = {
 };
 
 export type AlbumPhotosArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type AlbumsPage = {
@@ -78,9 +79,9 @@ export type Company = {
 };
 
 export type CompanyInput = {
-  bs?: Maybe<Scalars['String']>;
-  catchPhrase?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
+  bs?: InputMaybe<Scalars['String']>;
+  catchPhrase?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 export type CreateAlbumInput = {
@@ -111,13 +112,13 @@ export type CreateTodoInput = {
 };
 
 export type CreateUserInput = {
-  address?: Maybe<AddressInput>;
-  company?: Maybe<CompanyInput>;
+  address?: InputMaybe<AddressInput>;
+  company?: InputMaybe<CompanyInput>;
   email: Scalars['String'];
   name: Scalars['String'];
-  phone?: Maybe<Scalars['String']>;
+  phone?: InputMaybe<Scalars['String']>;
   username: Scalars['String'];
-  website?: Maybe<Scalars['String']>;
+  website?: InputMaybe<Scalars['String']>;
 };
 
 export type Geo = {
@@ -127,8 +128,8 @@ export type Geo = {
 };
 
 export type GeoInput = {
-  lat?: Maybe<Scalars['Float']>;
-  lng?: Maybe<Scalars['Float']>;
+  lat?: InputMaybe<Scalars['Float']>;
+  lng?: InputMaybe<Scalars['Float']>;
 };
 
 export type Mutation = {
@@ -240,9 +241,9 @@ export enum OperatorKindEnum {
 }
 
 export type OperatorOptions = {
-  field?: Maybe<Scalars['String']>;
-  kind?: Maybe<OperatorKindEnum>;
-  value?: Maybe<Scalars['String']>;
+  field?: InputMaybe<Scalars['String']>;
+  kind?: InputMaybe<OperatorKindEnum>;
+  value?: InputMaybe<Scalars['String']>;
 };
 
 export type PageLimitPair = {
@@ -257,16 +258,16 @@ export type PageMetadata = {
 };
 
 export type PageQueryOptions = {
-  operators?: Maybe<Array<Maybe<OperatorOptions>>>;
-  paginate?: Maybe<PaginateOptions>;
-  search?: Maybe<SearchOptions>;
-  slice?: Maybe<SliceOptions>;
-  sort?: Maybe<Array<Maybe<SortOptions>>>;
+  operators?: InputMaybe<Array<InputMaybe<OperatorOptions>>>;
+  paginate?: InputMaybe<PaginateOptions>;
+  search?: InputMaybe<SearchOptions>;
+  slice?: InputMaybe<SliceOptions>;
+  sort?: InputMaybe<Array<InputMaybe<SortOptions>>>;
 };
 
 export type PaginateOptions = {
-  limit?: Maybe<Scalars['Int']>;
-  page?: Maybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
 };
 
 export type PaginationLinks = {
@@ -303,7 +304,7 @@ export type Post = {
 };
 
 export type PostCommentsArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type PostsPage = {
@@ -335,7 +336,7 @@ export type QueryAlbumArgs = {
 };
 
 export type QueryAlbumsArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type QueryCommentArgs = {
@@ -343,7 +344,7 @@ export type QueryCommentArgs = {
 };
 
 export type QueryCommentsArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type QueryPhotoArgs = {
@@ -351,7 +352,7 @@ export type QueryPhotoArgs = {
 };
 
 export type QueryPhotosArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type QueryPostArgs = {
@@ -359,7 +360,7 @@ export type QueryPostArgs = {
 };
 
 export type QueryPostsArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type QueryTodoArgs = {
@@ -367,7 +368,7 @@ export type QueryTodoArgs = {
 };
 
 export type QueryTodosArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type QueryUserArgs = {
@@ -375,22 +376,22 @@ export type QueryUserArgs = {
 };
 
 export type QueryUsersArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type SearchOptions = {
-  q?: Maybe<Scalars['String']>;
+  q?: InputMaybe<Scalars['String']>;
 };
 
 export type SliceOptions = {
-  end?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  start?: Maybe<Scalars['Int']>;
+  end?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  start?: InputMaybe<Scalars['Int']>;
 };
 
 export type SortOptions = {
-  field?: Maybe<Scalars['String']>;
-  order?: Maybe<SortOrderEnum>;
+  field?: InputMaybe<Scalars['String']>;
+  order?: InputMaybe<SortOrderEnum>;
 };
 
 export enum SortOrderEnum {
@@ -414,40 +415,40 @@ export type TodosPage = {
 };
 
 export type UpdateAlbumInput = {
-  title?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['ID']>;
+  title?: InputMaybe<Scalars['String']>;
+  userId?: InputMaybe<Scalars['ID']>;
 };
 
 export type UpdateCommentInput = {
-  body?: Maybe<Scalars['String']>;
-  email?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
+  body?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 export type UpdatePhotoInput = {
-  thumbnailUrl?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
+  thumbnailUrl?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
 export type UpdatePostInput = {
-  body?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
+  body?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 export type UpdateTodoInput = {
-  completed?: Maybe<Scalars['Boolean']>;
-  title?: Maybe<Scalars['String']>;
+  completed?: InputMaybe<Scalars['Boolean']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 export type UpdateUserInput = {
-  address?: Maybe<AddressInput>;
-  company?: Maybe<CompanyInput>;
-  email?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  phone?: Maybe<Scalars['String']>;
-  username?: Maybe<Scalars['String']>;
-  website?: Maybe<Scalars['String']>;
+  address?: InputMaybe<AddressInput>;
+  company?: InputMaybe<CompanyInput>;
+  email?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
+  phone?: InputMaybe<Scalars['String']>;
+  username?: InputMaybe<Scalars['String']>;
+  website?: InputMaybe<Scalars['String']>;
 };
 
 export type User = {
@@ -466,15 +467,15 @@ export type User = {
 };
 
 export type UserAlbumsArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type UserPostsArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type UserTodosArgs = {
-  options?: Maybe<PageQueryOptions>;
+  options?: InputMaybe<PageQueryOptions>;
 };
 
 export type UsersPage = {
