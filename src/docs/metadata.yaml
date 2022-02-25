@@ -1,8 +1,6 @@
 ---
 Author: Sila Rim
-Generate:
-  "Auto generated file from src/docs/xxx.md to edit it in that folder then run
-  command yarn gen:docs"
+Generate: "to edit this file in src/docs/xxx.md then run command yarn gen:docs"
 License: MIT
 ---
 
