@@ -144,3 +144,5 @@ const getProperty = <T, K extends keyof T>(obj: T, key: K) => {
 const userName = getProperty({ name: 'sila' });
 // log(userName.name) ==> "sila"
 ```
+
+[Back Contents](#Contents)
