@@ -381,4 +381,4 @@ const userName = getProperty({ name: 'sila' });
 // log(userName.name) ==> "sila"
 ```
 
-[Back Contents](#Contents)
+[Back2Top](#nextjs-next-boilerplate)
