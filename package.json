@@ -25,7 +25,7 @@
         "ycom": "yalc add components-next --no-pure",
         "ycom-update": "rm -rf yalc.lock && yalc update components-next --no-pure",
         "clean:yalc": "rm -rf .yalc",
-        "gen:docs": "cd src/docs && pandoc -s *.md  -o output.md && mv output.md  ../../README.md && cd ../"
+        "gen:docs": "cd src/docs && pandoc  *.md metadata.yaml -s -o output.md && mv output.md  ../../README.md && cd ../"
     },
     "dependencies": {
         "@ant-design/icons": "^4.7.0",
