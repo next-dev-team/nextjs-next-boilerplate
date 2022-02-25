@@ -1,8 +1,7 @@
 ---
 Author: Sila Rim
 License: MIT
-Note: This is the docs auto generate if want to change it check in
-  src/docs
+Note: Auto generate docs if want to change it check in src/docs
 Title: NextJS Next Boilerplate
 ---
 
