@@ -1,8 +1,9 @@
 ---
-abstract: This is the docs auto generate if want to change it check in
+Author: Sila Rim
+License: MIT
+Note: This is the docs auto generate if want to change it check in
   src/docs
-author: Sila Rim
-title: NextJS Next Boilerplate
+Title: NextJS Next Boilerplate
 ---
 
 # NextJs Next Boilerplate
