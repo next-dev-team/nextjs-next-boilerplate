@@ -71,10 +71,6 @@ export default function useSettingsStore() {
         name: getRouteName('detail'),
         path: ROUTE.detail,
       },
-      {
-        name: getRouteName('docs'),
-        path: ROUTE.docs,
-      },
     ],
     [t],
   );

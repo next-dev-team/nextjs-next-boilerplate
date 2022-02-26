@@ -17,7 +17,6 @@ export default function useOfflineNotification() {
       notifications.close('offline');
     }
   }, [online]);
-  console.log('online', online);
 
   return {};
 }
