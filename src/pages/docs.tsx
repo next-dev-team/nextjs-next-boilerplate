@@ -3,7 +3,7 @@ import Layout from '@/components/module/Layout';
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-const content = require('../docs/allDocs.md');
+const content = require('../../README.md');
 
 function Docs() {
   console.log('markdown');
