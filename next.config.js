@@ -1,4 +1,11 @@
 module.exports = {
+  webpack: function (config) {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader',
+    });
+    return config;
+  },
   swcMinify: true,
   typescript: {
     ignoreBuildErrors: true,
@@ -9,6 +16,6 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
   images: {
-    formats: ['image/avif']
-  }
+    formats: ['image/avif'],
+  },
 };

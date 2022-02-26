@@ -32,7 +32,7 @@ type IStoreKey = keyof IStore;
 
 const store = createStore(initStore);
 
-export function useSettingsStore() {
+export default function useSettingsStore() {
   const { state } = useGlobalStore<IStoreKey, IStore>({
     key: 'useSettingsStore',
     store,
@@ -68,8 +68,12 @@ export function useSettingsStore() {
         path: ROUTE.home,
       },
       {
-        name: getRouteName('about'),
-        path: ROUTE.about,
+        name: getRouteName('detail'),
+        path: ROUTE.detail,
+      },
+      {
+        name: getRouteName('docs'),
+        path: ROUTE.docs,
       },
     ],
     [t],

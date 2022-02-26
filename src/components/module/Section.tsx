@@ -51,7 +51,7 @@ export const Section = ({
           // if user pass bg- it will override
           !bgTransparent &&
             !className.includes('bg-') &&
-            'bg-gradient-to-r from-secondary-50  to-primary-200 dark:from-gray-600 dark:to-gray-800',
+            'bg-gradient-to-r from-primary-100  to-secondary-200 dark:from-gray-600 dark:to-gray-800',
           !noSpacing && !isFull && 'pb-10 lg:pb-12 px-5 lg:px-0 mx-auto',
           hasMt && 'pt-10 lg:pt-12',
           isFull && 'px-10',
