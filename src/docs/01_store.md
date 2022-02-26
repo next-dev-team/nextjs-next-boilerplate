@@ -2,6 +2,8 @@
 
 usage of store with hookstate with custom plugin
 
+## Create Store
+
 ```tsx
 import { createStore, useGlobalStore } from '@/hooks';
 
@@ -54,6 +56,7 @@ export default function useSampleStore() {
   const { state } = useGlobalStore<IStoreKey, IStore>({
     key: 'useSampleStore',
     store,
+    // put store key name we want to persist
     whitelist: ['counter'],
   });
 
@@ -75,5 +78,29 @@ export default function useSampleStore() {
   } as const;
 }
 
+//return store type and store for using outside react
 export type ISettingStore = Partial<ReturnType<typeof useSampleStore>>;
+export { store as settingStore };
+```
+
+## Use store in component
+
+```tsx
+import useSampleStore from '@/store';
+
+export default function HomePage() {
+  const { counter } = useSampleStore();
+
+
+  return <>
+     /**
+   * this counter get from store also it's persist in local storage
+   * it will re-render only counter update
+   */
+  <h1>{counter}</h1>
+
+  {/*  setCounterDecBy with arg will update counter cause component re-render */}
+  <button onClick={()=>setCounterDecBy(1)> </button>
+  </>;
+}
 ```

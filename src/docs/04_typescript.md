@@ -1,4 +1,4 @@
-# Typescript tutorial Common use in ReactJS By Sila
+# Typescript tutorial Common use in ReactJS
 
 ```tsx
 /**

@@ -43,3 +43,5 @@ export default function useSampleStore() {
 }
 
 export type ISettingStore = Partial<ReturnType<typeof useSampleStore>>;
+
+export { store as settingStore };
