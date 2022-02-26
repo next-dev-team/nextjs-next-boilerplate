@@ -1,3 +1,7 @@
+# State Management
+
+usage of store with hookstate with custom plugin
+
 ```tsx
 import { createStore, useGlobalStore } from '@/hooks';
 
