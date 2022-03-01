@@ -1,6 +1,6 @@
 import { IStoreLifeCycle, persistence, storeLifeCycle } from '@/plugins';
 import { removeItem } from '@/utils';
-import { createState, State, useHookstate } from '@hookstate/core';
+import { State, useHookstate } from '@hookstate/core';
 import { useUpdate, useUpdateEffect } from 'ahooks';
 import { isDev } from 'components-next/lib';
 import { isEmpty } from 'lodash';
@@ -41,12 +41,13 @@ export const useGlobalStore = <E, S>({
   //if whitelist or blacklist will use persist func
   if ((!isEmpty(whitelist) || !isEmpty(blacklist)) && key) {
     state.attach(persistence(key, whitelist, blacklist));
-  } else {
-    removeItem(key);
-    if (isDebugMode) {
-      console.log('removeItem ===> ' + key);
-    }
   }
+  // else {
+  //   removeItem(key);
+  //   if (isDebugMode) {
+  //     console.log('removeItem ===> ' + key);
+  //   }
+  // }
 
   //logger store
   useUpdateEffect(() => {
@@ -114,4 +115,4 @@ const getGlobalStore = <E, S>({
   return store;
 };
 
-export { createState as createStore, getGlobalStore };
+export { getGlobalStore };
