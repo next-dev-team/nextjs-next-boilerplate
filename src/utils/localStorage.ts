@@ -5,10 +5,11 @@ import { isBrowser } from 'components-next';
  */
 export const localStorageSsr = isBrowser ? localStorage : ((() => {}) as undefined);
 
-export const getItem = (key: string) => {
+export const getItem = <T extends string>(key: T, isParseValue?: boolean) => {
   const getLs = localStorageSsr?.getItem?.(key);
   const result = getLs ? JSON.parse(getLs) : null;
-  return result;
+
+  return isParseValue ? JSON.parse(result) : result;
 };
 
 export const removeItem = (key: string) => localStorageSsr?.removeItem?.(key);

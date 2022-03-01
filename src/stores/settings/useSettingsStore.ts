@@ -1,6 +1,7 @@
 import { getRouteName, OPTIONS, ROUTE } from '@/constants';
-import { createStore, useGlobalStore, useI18n } from '@/hooks';
+import { useGlobalStore, useI18n, wrapGlobalStore } from '@/hooks';
 import i18n, { I18nKey, resources } from '@/locales';
+import { createState } from '@hookstate/core';
 import { useMemoizedFn } from 'ahooks';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,14 +20,16 @@ const initStore = {
 type IStore = IInitStore & typeof initStore;
 type IStoreKey = keyof IStore;
 
-const store = createStore(initStore);
+const store = createState(initStore as IStore);
+
+const wrapStore = wrapGlobalStore<IStoreKey, IStore>({
+  key: 'useSettingsStore',
+  store,
+  whitelist: ['colorScheme', 'currentLocale', 'i18nOption'],
+});
 
 export function useSettingsStore() {
-  const { state } = useGlobalStore<IStoreKey, IStore>({
-    key: 'useSettingsStore',
-    store,
-    whitelist: ['colorScheme', 'currentLocale', 'i18nOption'],
-  });
+  const { state } = useGlobalStore(wrapStore);
   const { t } = useI18n();
 
   const isDarkMode = state.colorScheme.get() === 'dark';

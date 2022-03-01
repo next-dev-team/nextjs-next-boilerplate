@@ -1,6 +1,7 @@
 import { usePostQuery } from '@/graphQl/hooks';
 import { PostQuery, PostQueryVariables } from '@/graphQl/operations';
-import { createStore, useGlobalStore } from '@/hooks';
+import { getGlobalStore, useGlobalStore, wrapGlobalStore } from '@/hooks';
+import { createState } from '@hookstate/core';
 import { useCreation, useRequest } from 'ahooks';
 import { AxiosResponse } from 'axios';
 import { getAsyncNameGraph, getAsyncNameService } from './service';
@@ -20,14 +21,18 @@ const initStore = {
 type IStore = typeof initStore;
 type IStoreKey = keyof IStore;
 
-const store = createStore(initStore);
+const store = createState(initStore);
 
-export function useDemoStore() {
-  const { state } = useGlobalStore<IStoreKey, IStore>({
-    key: 'useDemoStore',
-    store,
-    whitelist: ['counter', 'variablesPosts'],
-  });
+const wrapStore = wrapGlobalStore<IStoreKey, IStore>({
+  key: 'useDemoStore',
+  store,
+  whitelist: ['counter', 'variablesPosts'],
+});
+
+export function useDemoStore(props?: { forceReload?: boolean }) {
+  const { forceReload } = props || {};
+
+  const { state } = useGlobalStore({ ...wrapStore, forceReload });
 
   /**
    * with ahooks useRequest cache
@@ -111,3 +116,6 @@ export function useDemoStore() {
     refetchPostData,
   } as const;
 }
+
+// get store outSide react
+export const demoStore = getGlobalStore(wrapStore);

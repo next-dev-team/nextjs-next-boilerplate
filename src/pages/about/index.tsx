@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { Section } from '@/components/module';
 import Layout from '@/components/module/Layout';
 import { useApolloGraph } from '@/components/template/home/apolloGraph';
@@ -17,7 +16,13 @@ const IndexPage = () => {
           <div className="border p-4 rounded-md">
             <h4>Counter</h4>
             <div className="flex items-center gap-4 mt-3">
-              <Button onClick={() => demoStore.dec(1)}>-</Button>
+              <Button
+                onClick={() => {
+                  demoStore.dec();
+                }}
+              >
+                -
+              </Button>
               <p>{demoStore.counter}</p>
               <Button color="success" onClick={() => demoStore.inc()}>
                 +

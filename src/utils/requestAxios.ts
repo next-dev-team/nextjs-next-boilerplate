@@ -30,7 +30,7 @@ instance.interceptors.request.use(
 // Add a response interceptor
 instance.interceptors.response.use(
   function (response) {
-    console.log('response', response);
+    // console.log('response', response);
 
     // refresh token for graphQl
     // if (
