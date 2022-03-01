@@ -8,13 +8,24 @@ import { useTranslation } from 'react-i18next';
 
 type IInitStore = {
   colorScheme: 'dark' | 'light' | 'system';
+  appState: 'offline' | 'online';
+  currentLocale: I18nKey;
+};
+
+const initWithoutType = {
+  i18nItem: Object.keys(resources),
+  i18nOption: OPTIONS.i18nOption,
+};
+
+const initWithType: IInitStore = {
+  colorScheme: 'light',
+  currentLocale: 'en',
+  appState: 'online',
 };
 
 const initStore = {
-  colorScheme: 'light',
-  i18nItem: Object.keys(resources).map((i) => i),
-  currentLocale: 'en',
-  i18nOption: OPTIONS.i18nOption,
+  ...initWithoutType,
+  ...initWithType,
 };
 
 type IStore = IInitStore & typeof initStore;
@@ -60,8 +71,8 @@ export function useSettingsStore() {
         path: ROUTE.home,
       },
       {
-        name: getRouteName('about'),
-        path: ROUTE.about,
+        name: getRouteName('detail'),
+        path: ROUTE.detail,
       },
     ],
     [t],

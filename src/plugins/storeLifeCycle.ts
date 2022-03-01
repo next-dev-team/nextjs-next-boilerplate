@@ -1,5 +1,3 @@
-// credit https://github.com/peter-olom/hookstate-persist/blob/main/src/index.ts
-
 import { Plugin, PluginCallbacks, State, StateValueAtRoot } from '@hookstate/core';
 import isEqual from 'react-fast-compare';
 

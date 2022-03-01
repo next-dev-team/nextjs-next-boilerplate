@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nokora:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* optional unreset css https://www.swyx.io/writing/tailwind-unreset/ */
+@import './unreset.css';
+@import './markdown.css';
+
+@layer base {
+  html {
+    font-family: Roboto Slab, Nokora, system-ui, sans-serif;
+  }
+}
+
+.rc-menu:not(.rc-menu-horizontal) .rc-menu-item-selected {
+  text-decoration: underline;
+  background-color: transparent;
+}

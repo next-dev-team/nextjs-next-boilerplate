@@ -1,4 +1,4 @@
-# Typescript tutorial Common use in ReactJS By Sila
+# Typescript tutorial Common use in ReactJS
 
 ```tsx
 /**
@@ -144,3 +144,5 @@ const getProperty = <T, K extends keyof T>(obj: T, key: K) => {
 const userName = getProperty({ name: 'sila' });
 // log(userName.name) ==> "sila"
 ```
+
+[Back2Top](#nextjs-next-boilerplate)
