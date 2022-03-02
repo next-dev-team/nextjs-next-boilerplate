@@ -1508,6 +1508,16 @@
     redux "4.0.5"
     redux-devtools-extension "2.13.8"
 
+"@hookstate/labelled@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@hookstate/labelled/-/labelled-3.0.0.tgz#e53e0a5f63675c8381dca45a10a31b71e8275be8"
+  integrity sha512-3M9hqKKjGgVcj2NgdBMT/1fT0I0VSu6Ih56sfbeqOO8VUGRqXKTVXRCSSschK6Oy1Hc4eMS2PzR+1i7HH1iCsw==
+
+"@hookstate/logger@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@hookstate/logger/-/logger-3.0.0.tgz#8f859932469ee53a65b0dc366205f6c6242c3e28"
+  integrity sha512-79FigkCZJrcDyA+b25DE3zhuNbLIpCWaQ8o9zIzz437tXI3eqyApEHYf10cr5FgUswG6mlQKsx21b/S6tSR/CA==
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -6863,6 +6873,11 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-loading-skeleton@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.0.3.tgz#4f45467cf3193fb25456bc02aeb81922b82b8f1f"
+  integrity sha512-HPkEqQGwmbg1ImcYA9n4hDiLC3u92xUdU+sSfrv/9l3lNBChAubcl1azjV2WakapdkbA3gko+hPzZkZGIb/9xA==
 
 react-markdown@^8.0.0:
   version "8.0.0"

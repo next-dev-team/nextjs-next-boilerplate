@@ -2,7 +2,6 @@ import { getRouteName, OPTIONS, ROUTE } from '@/constants';
 import { useGlobalStore, useI18n, wrapGlobalStore } from '@/hooks';
 import i18n, { I18nKey, resources } from '@/locales';
 import { createState } from '@hookstate/core';
-import { useMemoizedFn } from 'ahooks';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -43,9 +42,6 @@ export function useSettingsStore() {
   const { state } = useGlobalStore(wrapStore);
   const { t } = useI18n();
 
-  const isDarkMode = state.colorScheme.get() === 'dark';
-  const isLightMode = state.colorScheme.get() === 'light';
-
   const setColorScheme = (colorScheme: IInitStore['colorScheme'] = 'light') => {
     const theme = {
       dark: 'dark',
@@ -55,9 +51,9 @@ export function useSettingsStore() {
 
     state.colorScheme.set(theme?.[colorScheme]);
   };
-  const toggleDark = useMemoizedFn(() => {
-    state.colorScheme.set(isDarkMode ? 'light' : 'dark');
-  });
+  const toggleDark = () => {
+    state.colorScheme.set((p) => (p === 'dark' ? 'light' : 'dark'));
+  };
 
   const changeI18n = (key: I18nKey) => {
     state.currentLocale.set(key);
@@ -78,7 +74,7 @@ export function useSettingsStore() {
     [t],
   );
 
-  const setI18nOption = (key: string) => {
+  const setI18nOption = (key: I18nKey) => {
     const findUpdateInd = state.i18nOption.findIndex((lc) => lc.value.value === key);
     const getToggleVal = state.i18nOption.get().map((i, k) => {
       return { ...i, isActive: k === findUpdateInd };
@@ -88,8 +84,13 @@ export function useSettingsStore() {
 
   return {
     toggleDark,
-    isDarkMode,
-    isLightMode,
+
+    get isDarkMode() {
+      return state.colorScheme.get() === 'dark';
+    },
+    get isLightMode() {
+      return state.colorScheme.get() === 'dark';
+    },
     setI18nOption,
     menu,
     /**

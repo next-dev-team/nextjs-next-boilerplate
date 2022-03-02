@@ -7,7 +7,7 @@ interface TransitionOptions {
   scroll?: boolean;
 }
 
-export const useRoutes = () => {
+export default function useRoutes() {
   const { push, pathname } = useRouter();
 
   const navigateHome = () => {
@@ -28,4 +28,4 @@ export const useRoutes = () => {
     push,
     navigateHome,
   };
-};
+}

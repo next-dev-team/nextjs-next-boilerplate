@@ -1,4 +1,4 @@
-import { useRoutes } from '@/hooks/useRoutes';
+import useRoutes from '@/hooks/useRoutes';
 import { clx } from '@/utils';
 import Head from 'next/head';
 import type { ReactNode } from 'react';

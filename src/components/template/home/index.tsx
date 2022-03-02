@@ -13,10 +13,10 @@ const IndexPageTemplate = () => {
   const demoData: { title?: any; content?: any }[] = [
     useReadme(),
     useComponent(),
+    useStateManagement(),
     useTailwind(),
     useI18nDemo(),
     useApolloGraph(),
-    useStateManagement(),
     usePerformance(),
   ];
 

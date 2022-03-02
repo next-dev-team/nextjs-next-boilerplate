@@ -1,4 +1,5 @@
 import { Plugin, PluginCallbacks, State, StateValueAtRoot } from '@hookstate/core';
+import { isDev } from 'components-next/lib';
 import isEqual from 'react-fast-compare';
 
 const PluginID = Symbol('storeLifeCycle');
@@ -26,6 +27,16 @@ export function storeLifeCycle({
           onSet?.(data);
           if (!isStateEqual) {
             onStoreChange?.(data);
+
+            if (isDev) {
+              console.log(
+                `%c [store]: '${data.path.join('/')}':`,
+                'background: #222; color:orange',
+                data?.previous,
+                '=>',
+                data.value,
+              );
+            }
           }
         },
       };

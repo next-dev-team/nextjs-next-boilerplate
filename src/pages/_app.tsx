@@ -3,7 +3,6 @@ import { NarBar } from '@/components/module';
 import { useOfflineNotification } from '@/hooks';
 import useDarkMode from '@/hooks/useDarkMode';
 import withApollo from '@/utils/withApollo';
-import '@hookstate/devtools';
 import { FormProvider } from 'components-next';
 import 'components-next/lib/assets/styles.css';
 import { Router } from 'next/router';

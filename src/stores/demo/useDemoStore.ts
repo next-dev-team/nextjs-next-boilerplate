@@ -3,7 +3,6 @@ import { PostQuery, PostQueryVariables } from '@/graphQl/operations';
 import { getGlobalStore, useGlobalStore, wrapGlobalStore } from '@/hooks';
 import { createState } from '@hookstate/core';
 import { useCreation, useRequest } from 'ahooks';
-import { AxiosResponse } from 'axios';
 import { getAsyncNameGraph, getAsyncNameService } from './service';
 
 const initStore = {
@@ -84,14 +83,15 @@ export function useDemoStore(props?: { forceReload?: boolean }) {
     },
 
     /**
-     * with axios
+     * async store with axios
      */
     getAsyncNameAxios: async (p: PostQueryVariables) => {
       state.loadingAsyncNameAxios.set(true);
-      const asyncNameRes: AxiosResponse<PostQuery> = await getAsyncNameGraph(p);
+      const asyncNameRes = await getAsyncNameGraph(p);
 
-      state.asyncNameAxios.set([asyncNameRes?.data?.post]);
+      state.asyncNameAxios.set([asyncNameRes?.post]);
       state.loadingAsyncNameAxios.set(false);
+      return asyncNameRes;
     },
     get asyncNameAxios() {
       return state.asyncNameAxios.get();

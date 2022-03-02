@@ -1,6 +1,7 @@
 import { IStoreLifeCycle, persistence, storeLifeCycle } from '@/plugins';
 import { removeItem } from '@/utils';
 import { State, useHookstate } from '@hookstate/core';
+import { Labelled } from '@hookstate/labelled';
 import { useUpdate, useUpdateEffect } from 'ahooks';
 import { isDev } from 'components-next/lib';
 import { isEmpty } from 'lodash';
@@ -42,12 +43,6 @@ export const useGlobalStore = <E, S>({
   if ((!isEmpty(whitelist) || !isEmpty(blacklist)) && key) {
     state.attach(persistence(key, whitelist, blacklist));
   }
-  // else {
-  //   removeItem(key);
-  //   if (isDebugMode) {
-  //     console.log('removeItem ===> ' + key);
-  //   }
-  // }
 
   //logger store
   useUpdateEffect(() => {
@@ -67,6 +62,11 @@ export const useGlobalStore = <E, S>({
       ...lifeCycleEvent(),
     }),
   );
+
+  // display store name to e development tools console
+  if (key) {
+    state.attach(Labelled(key));
+  }
 
   return {
     state,
@@ -94,7 +94,7 @@ export const wrapGlobalStore = <E, S>({
  * @param param0
  * @returns
  */
-const getGlobalStore = <E, S>({
+export const getGlobalStore = <E, S>({
   store,
   key,
   whitelist,
@@ -114,5 +114,3 @@ const getGlobalStore = <E, S>({
 
   return store;
 };
-
-export { getGlobalStore };

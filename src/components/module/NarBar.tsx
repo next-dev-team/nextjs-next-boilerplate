@@ -1,5 +1,5 @@
 import { colors, ROUTE } from '@/constants';
-import { useRoutes } from '@/hooks/useRoutes';
+import useRoutes from '@/hooks/useRoutes';
 import { useSettingsStore } from '@/stores';
 import { useReactive, useToggle } from 'ahooks';
 import { clx, Drawer, MenuItem, Menus } from 'components-next';
@@ -44,7 +44,7 @@ const NarBar = () => {
             key={i.value}
             onClick={() => {
               changeI18n(i.value);
-              setI18nOption(i.value as any);
+              setI18nOption(i.value);
             }}
           >
             {i.label}

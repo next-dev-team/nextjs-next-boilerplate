@@ -4,7 +4,7 @@ import axios from 'axios';
 /**
  *
  */
-const instance = axios.create({
+export const axiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
@@ -12,11 +12,13 @@ const instance = axios.create({
   method: 'POST',
 });
 
-instance.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   function (config) {
     config.headers = {
       ...config.headers,
-      // Authorization: `Bearer ${apiUrl.token}`,
+      //todo: add token and other header
+      // 'x-api-key': getToken()?.refreshToken as string,
+      // Authorization: `Bearer ${getToken()?.token}`,
     };
 
     return config;
@@ -28,11 +30,11 @@ instance.interceptors.request.use(
 );
 
 // Add a response interceptor
-instance.interceptors.response.use(
+axiosInstance.interceptors.response.use(
   function (response) {
     // console.log('response', response);
 
-    // refresh token for graphQl
+    //todo: refresh token
     // if (
     //   response?.status === 200 &&
     //   response?.data?.errors?.[0]?.extensions?.response?.statusCode === 401
@@ -51,20 +53,6 @@ instance.interceptors.response.use(
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
 
-    // refresh token for rest
-    // if (
-    //   error?.status === 200 &&
-    //   error?.data?.errors?.[0]?.extensions?.response?.statusCode === 401
-    // ) {
-    //   return getAuthTokenApi().then((token) => {
-    //     if (error?.config?.headers && token?.data?.authToken) {
-    //       error.config.headers['x-api-key'] = token?.data?.authToken;
-    //     }
-    //     return axios.request(error.config);
-    //   });
-    // }
     return Promise.reject(error);
   },
 );
-
-export { instance as requestAxios };
