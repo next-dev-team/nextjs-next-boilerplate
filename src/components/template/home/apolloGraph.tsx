@@ -1,9 +1,7 @@
 import { CREDENTIAL } from '@/constants';
-import { ISettingStore, useDemoStore } from '@/stores';
+import { useDemoStore } from '@/stores';
 import { Button } from 'components-next/lib';
 import { omit } from 'lodash';
-
-type II18nDemo = Pick<ISettingStore, 'currentLocale' | 't' | 'changeI18n'>;
 
 export const useApolloGraph = () => {
   const demoStore = useDemoStore();

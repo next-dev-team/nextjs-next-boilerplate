@@ -42,7 +42,8 @@ export function useDemoStore(props?: { forceReload?: boolean }) {
     loading: loadingAsyncName,
     refresh: refetchAsyncName,
     mutate: clearAsyncName,
-  } = useRequest(getAsyncNameService, { cacheKey: 'cache-demo' });
+    runAsync: runAsyncName,
+  } = useRequest(getAsyncNameService, { cacheKey: 'cache-demo', manual: true });
 
   /**
    * with GraphQl useQuery
@@ -56,6 +57,7 @@ export function useDemoStore(props?: { forceReload?: boolean }) {
   });
 
   return {
+    runAsyncName,
     /**
      * hookstate part
      */
@@ -116,6 +118,8 @@ export function useDemoStore(props?: { forceReload?: boolean }) {
     refetchPostData,
   } as const;
 }
+
+export type IDemoStore = Partial<ReturnType<typeof useDemoStore>>;
 
 // get store outSide react
 export const demoStore = getGlobalStore(wrapStore);

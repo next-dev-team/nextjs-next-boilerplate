@@ -1,8 +1,4 @@
-import { useDemoStore } from '@/stores';
-
 export const useComponent = () => {
-  const demoStore = useDemoStore();
-
   return {
     title: 'Components (Layout, Section, component...)',
     content: (

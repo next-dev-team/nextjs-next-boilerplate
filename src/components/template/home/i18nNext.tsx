@@ -4,7 +4,6 @@ import { upperCase } from 'lodash';
 
 export const useI18nDemo = () => {
   const { currentLocale, changeI18n, t } = useSettingsStore();
-  const d = useSettingsStore();
 
   return {
     title: 'Locale with i18nNext',

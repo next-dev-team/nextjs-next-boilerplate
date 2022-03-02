@@ -1,4 +1,4 @@
-import { createStore, useGlobalStore } from '@/hooks';
+import { createStore, getGlobalStore, useGlobalStore, wrapGlobalStore } from '@/hooks';
 
 type IInitStore = {
   colorScheme: 'dark' | 'light';
@@ -23,12 +23,14 @@ type IStoreKey = keyof IStore;
 
 const store = createStore(initStore);
 
+const wrapStore = wrapGlobalStore<IStoreKey, IStore>({
+  key: 'useSampleStore',
+  store,
+  whitelist: ['counter'],
+});
+
 export default function useSampleStore() {
-  const { state } = useGlobalStore<IStoreKey, IStore>({
-    key: 'useSampleStore',
-    store,
-    whitelist: ['counter'],
-  });
+  const { state } = useGlobalStore(wrapStore);
 
   const setCounterDecBy = (by = 1) => {
     state.counter.set((p) => p - by);
@@ -42,6 +44,7 @@ export default function useSampleStore() {
   } as const;
 }
 
-export type ISettingStore = Partial<ReturnType<typeof useSampleStore>>;
+export type ISampleStore = Partial<ReturnType<typeof useSampleStore>>;
 
-export { store as settingStore };
+// get store outSide react
+export const demoStore = getGlobalStore(wrapStore);
