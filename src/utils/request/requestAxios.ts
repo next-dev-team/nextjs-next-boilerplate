@@ -1,20 +1,23 @@
 import { AxiosRequestConfig } from 'axios';
 import { ASTNode, print } from 'graphql';
+import { Required } from 'utility-types';
 import { axiosInstance } from './axiosInstance';
 
 type IConfig<T> =
-  | ({
-      formData?: any;
-      isDebug?: boolean;
-      /**
-       * get from graphql document
-       */
-      gqlDocument?: ASTNode;
-      /**
-       * variables for graphql query
-       */
-      variables?: Record<string, any>;
-    } & AxiosRequestConfig<T>)
+  | Partial<
+      {
+        formData: any;
+        isDebug: boolean;
+        /**
+         * get from graphql document
+         */
+        gqlDocument: ASTNode;
+        /**
+         * variables for graphql query
+         */
+        variables: Record<string, any>;
+      } & AxiosRequestConfig<T>
+    >
   | undefined;
 
 /**
@@ -73,7 +76,8 @@ export function requestPost<T>(config?: IConfig<T>) {
  * @param config
  * @returns
  */
-export function requestGraphql<T>(config?: IConfig<T>) {
+
+export function requestGraphql<T>(config: Required<IConfig<T>, 'gqlDocument'>) {
   return requestAxios<T>('', {
     method: 'POST',
     formData: {
