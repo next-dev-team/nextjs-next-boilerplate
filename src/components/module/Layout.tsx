@@ -18,7 +18,7 @@ const Layout = ({ children, pageTitle = '', className, childrenOnly }: ILayout) 
   const head = (
     <Head>
       <title>
-        soon {newPageTitle && '|'} {newPageTitle}
+        Nextjs {newPageTitle && '|'} {newPageTitle}
       </title>
     </Head>
   );

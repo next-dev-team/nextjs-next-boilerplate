@@ -8,3 +8,4 @@ export { default as useI18n } from './useI18n';
 export { default as useMediaQuery } from './useMediaQuery';
 export { default as useOfflineNotification } from './useOfflineNotification';
 export { getGlobalStore, useGlobalStore, wrapGlobalStore } from './usePersistStore';
+/* new-hook-import-goes-here */

@@ -4,6 +4,10 @@
     "components-next": {
       "signature": "7c65a189278248b38372089241468892",
       "file": true
+    },
+    "generator-next-boilerplate": {
+      "signature": "9e7e7a097d59c74c0c3e9a4ed58b3e6c",
+      "file": true
     }
   }
 }

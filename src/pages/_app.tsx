@@ -17,6 +17,7 @@ Router.events.on('routeChangeStart', () => {
 });
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
+
 function MyApp({ Component, pageProps, router }) {
   useDarkMode();
   useOfflineNotification();
