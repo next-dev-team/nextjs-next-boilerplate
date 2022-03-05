@@ -5,15 +5,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _HeartOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/HeartOutlined"));
+
+var _range2 = _interopRequireDefault(require("lodash/range"));
+
+require("antd/es/space/style");
+
+var _space = _interopRequireDefault(require("antd/es/space"));
+
+require("antd/es/button/style");
+
+var _button = _interopRequireDefault(require("antd/es/button"));
+
 var _react = _interopRequireDefault(require("react"));
 
-var _icons = require("@ant-design/icons");
-
 var _ahooks = require("ahooks");
-
-var _antd = require("antd");
-
-var _lodash = require("lodash");
 
 var _rcMenu = require("rc-menu");
 
@@ -49,9 +55,9 @@ var _default = function _default() {
   });
   var data = [{
     title: 'Simple Modal',
-    component: /*#__PURE__*/_react.default.createElement(_antd.Space, {
+    component: /*#__PURE__*/_react.default.createElement(_space.default, {
       direction: "vertical"
-    }, /*#__PURE__*/_react.default.createElement(_antd.Button, {
+    }, /*#__PURE__*/_react.default.createElement(_button.default, {
       onClick: toggle1,
       type: "primary"
     }, "Open Simple Drawer"))
@@ -68,13 +74,13 @@ var _default = function _default() {
     },
     openKeys: state.openKeys,
     selectedKeys: state.selectedKeys
-  }, (0, _lodash.range)(5).map(function (_, i) {
+  }, (0, _range2.default)(5).map(function (_, i) {
     return /*#__PURE__*/_react.default.createElement(_rcMenu.Item, {
       key: i,
       className: "w-40"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "flex items-center justify-center"
-    }, /*#__PURE__*/_react.default.createElement(_icons.HeartOutlined, {
+    }, /*#__PURE__*/_react.default.createElement(_HeartOutlined2.default, {
       className: "mr-3"
     }), " Item ", i));
   }));

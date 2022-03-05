@@ -5,9 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+require("antd/es/space/style");
 
-var _antd = require("antd");
+var _space = _interopRequireDefault(require("antd/es/space"));
+
+var _react = _interopRequireDefault(require("react"));
 
 var _componentsNext = require("components-next");
 
@@ -34,7 +36,7 @@ var SwitchDemo = function SwitchDemo() {
 
   var data = [{
     title: 'Switch',
-    component: /*#__PURE__*/_react.default.createElement(_antd.Space, null, /*#__PURE__*/_react.default.createElement(_componentsNext.Switch, {
+    component: /*#__PURE__*/_react.default.createElement(_space.default, null, /*#__PURE__*/_react.default.createElement(_componentsNext.Switch, {
       unCheckedChildren: "off",
       checkedChildren: "on"
     }), /*#__PURE__*/_react.default.createElement(_componentsNext.Switch, {

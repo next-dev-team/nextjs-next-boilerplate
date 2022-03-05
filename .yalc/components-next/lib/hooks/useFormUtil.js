@@ -5,9 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _isArray2 = _interopRequireDefault(require("lodash/isArray"));
+
 var _ahooks = require("ahooks");
 
-var _lodash = require("lodash");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const useFormUtil = props => {
   const _ref = props || {},
@@ -29,7 +31,7 @@ const useFormUtil = props => {
       form.setFieldsValue({
         [children === null || children === void 0 ? void 0 : (_children$props3 = children.props) === null || _children$props3 === void 0 ? void 0 : _children$props3.name]: !!fieldVal ? Number(fieldVal) : ''
       });
-    } else if ((0, _lodash.isArray)(children)) {
+    } else if ((0, _isArray2.default)(children)) {
       children.map(i => {
         var _i$props;
 

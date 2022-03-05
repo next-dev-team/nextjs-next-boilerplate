@@ -28,6 +28,6 @@
     "**/*.js",
     "**/*.jsx",
     "next.config.js"
-  ],
+, ".babel", ",babelrc"  ],
   "exclude": ["node_modules", ".cache"]
 }

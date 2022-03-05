@@ -1,12 +1,12 @@
 module.exports = {
   webpack: function (config) {
+    // to support import md files
     config.module.rules.push({
       test: /\.md$/,
       use: 'raw-loader',
     });
     return config;
   },
-  swcMinify: true,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -15,6 +15,7 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  // optimize image using next/images
   images: {
     formats: ['image/avif'],
   },

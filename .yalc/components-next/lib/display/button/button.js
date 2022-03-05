@@ -5,11 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _omit2 = _interopRequireDefault(require("lodash/omit"));
+
 var _react = _interopRequireDefault(require("react"));
 
-var _lodash = require("lodash");
-
-var _ = require("../..");
+var _utils = require("../../utils");
 
 var _excluded = ["className", "variant", "title", "color", "children"];
 
@@ -38,17 +38,17 @@ var Button = function Button(props) {
 
   var renderVariant = function renderVariant() {
     //------- primaryColor ----------
-    var primaryColor = (0, _.tw)({
+    var primaryColor = (0, _utils.tw)({
       primary: 'bg-blue-500 hover:bg-blue-600  focus:ring-blue-200',
       dark: 'bg-gray-800 hover:bg-gray-900 focus:ring-gray-300',
       success: 'bg-green-500 hover:bg-green-600 focus:ring-green-200'
     }); //------- outlineColor ----------
 
-    var outlineBase = (0, _.cls)(primaryColor[color], 'text-blue-500 hover:text-white border border-blue-500 bg-transparent');
-    var outlineColor = (0, _.tw1)({
+    var outlineBase = (0, _utils.cls)(primaryColor[color], 'text-blue-500 hover:text-white border border-blue-500 bg-transparent');
+    var outlineColor = (0, _utils.tw1)({
       light: 'text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300',
       primary: outlineBase,
-      dark: (0, _.cl)(outlineBase, 'border-gray-900 hover:bg-gray-900 text-gray-900')
+      dark: (0, _utils.cl)(outlineBase, 'border-gray-900 hover:bg-gray-900 text-gray-900')
     });
     /**
      * render variantType
@@ -58,13 +58,13 @@ var Button = function Button(props) {
       primary: primaryColor[color],
       outline: outlineColor[color]
     };
-    return variantType[variant];
+    return variantType === null || variantType === void 0 ? void 0 : variantType[variant];
   };
 
   return /*#__PURE__*/_react.default.createElement("button", _extends({
     type: "button"
-  }, (0, _lodash.omit)(rest, 'variant', 'color'), {
-    className: (0, _.clx)('text-white focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 text-center', renderVariant(), className)
+  }, (0, _omit2.default)(rest, 'variant', 'color'), {
+    className: (0, _utils.clx)('text-white focus:ring-2 font-medium rounded-lg text-sm px-5 py-2.5 text-center', renderVariant(), className)
   }), children || title);
 };
 

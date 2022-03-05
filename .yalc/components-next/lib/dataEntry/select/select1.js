@@ -5,9 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _CloseCircleFilled2 = _interopRequireDefault(require("@ant-design/icons/es/icons/CloseCircleFilled"));
 
-var _icons = require("@ant-design/icons");
+var _DownOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/DownOutlined"));
+
+var _react = _interopRequireDefault(require("react"));
 
 var _rcSelect = _interopRequireDefault(require("rc-select"));
 
@@ -35,8 +37,8 @@ var Select1 = function Select1(props) {
     className: (0, _utils.clx)('w-full', theme, className)
   }, /*#__PURE__*/_react.default.createElement(_rcSelect.default, _extends({
     placeholder: placeholder,
-    inputIcon: /*#__PURE__*/_react.default.createElement(_icons.DownOutlined, null),
-    clearIcon: /*#__PURE__*/_react.default.createElement(_icons.CloseCircleFilled, null)
+    inputIcon: /*#__PURE__*/_react.default.createElement(_DownOutlined2.default, null),
+    clearIcon: /*#__PURE__*/_react.default.createElement(_CloseCircleFilled2.default, null)
   }, rest)));
 };
 

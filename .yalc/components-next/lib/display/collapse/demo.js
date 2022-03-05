@@ -5,11 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _range2 = _interopRequireDefault(require("lodash/range"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _componentsNext = require("components-next");
-
-var _lodash = require("lodash");
 
 var _layout = require("../../utils/layout");
 
@@ -22,7 +22,7 @@ var ButtonDemo = function ButtonDemo() {
     component: /*#__PURE__*/_react.default.createElement(_componentsNext.Collapse, {
       accordion: true,
       defaultActiveKey: 0
-    }, (0, _lodash.range)(5).map(function (i) {
+    }, (0, _range2.default)(5).map(function (i) {
       return /*#__PURE__*/_react.default.createElement(_componentsNext.Panel, {
         header: "hello ".concat(i + 1),
         panelKey: i,

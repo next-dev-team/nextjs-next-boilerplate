@@ -7,11 +7,51 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.DemoLayout = void 0;
 
-var _icons = require("@ant-design/icons");
+require("antd/es/col/style");
+
+var _col = _interopRequireDefault(require("antd/es/col"));
+
+var _FullscreenOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/FullscreenOutlined"));
+
+require("antd/es/modal/style");
+
+var _modal = _interopRequireDefault(require("antd/es/modal"));
+
+require("antd/es/card/style");
+
+var _card = _interopRequireDefault(require("antd/es/card"));
+
+require("antd/es/row/style");
+
+var _row = _interopRequireDefault(require("antd/es/row"));
+
+var _CodeOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/CodeOutlined"));
+
+require("antd/es/button/style");
+
+var _button = _interopRequireDefault(require("antd/es/button"));
+
+var _EyeOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/EyeOutlined"));
+
+var _CopyOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/CopyOutlined"));
+
+require("antd/es/message/style");
+
+var _message2 = _interopRequireDefault(require("antd/es/message"));
+
+require("antd/es/empty/style");
+
+var _empty = _interopRequireDefault(require("antd/es/empty"));
+
+require("antd/es/space/style");
+
+var _space = _interopRequireDefault(require("antd/es/space"));
+
+require("antd/es/input/style");
+
+var _input = _interopRequireDefault(require("antd/es/input"));
 
 var _ahooks = require("ahooks");
-
-var _antd = require("antd");
 
 var _Text = _interopRequireDefault(require("antd/lib/typography/Text"));
 
@@ -112,14 +152,14 @@ var DemoLayout = function DemoLayout(props) {
   }),
       onSearch = _useDebounceFn.run;
 
-  return /*#__PURE__*/_react.default.createElement(_componentsNext.RcProvider, null, !children && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_antd.Space, {
+  return /*#__PURE__*/_react.default.createElement(_componentsNext.RcProvider, null, !children && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_space.default, {
     align: "baseline"
   }, /*#__PURE__*/_react.default.createElement(_componentsNext.Button, {
     variant: dark === 'dark' ? 'outline' : 'primary',
     color: dark === 'dark' ? 'light' : 'dark',
     className: "py-2",
     onClick: ToggleDark
-  }, dark ? 'Dark' : 'Light'), /*#__PURE__*/_react.default.createElement(_antd.Input, {
+  }, dark ? 'Dark' : 'Light'), /*#__PURE__*/_react.default.createElement(_input.default, {
     onChange: function onChange(v) {
       var _v$target;
 
@@ -128,19 +168,19 @@ var DemoLayout = function DemoLayout(props) {
     className: "max-w-xs mb-6",
     placeholder: "Search...",
     allowClear: true
-  })), /*#__PURE__*/_react.default.createElement(_antd.Row, {
+  })), /*#__PURE__*/_react.default.createElement(_row.default, {
     gutter: gutter,
     justify: (0, _componentsNext._isEmpty)(itemData) ? 'center' : 'start'
-  }, (0, _componentsNext._isEmpty)(itemData) && /*#__PURE__*/_react.default.createElement(_antd.Empty, null), itemData === null || itemData === void 0 ? void 0 : (_itemData$map = itemData.map) === null || _itemData$map === void 0 ? void 0 : _itemData$map.call(itemData, function (i, k) {
+  }, (0, _componentsNext._isEmpty)(itemData) && /*#__PURE__*/_react.default.createElement(_empty.default, null), itemData === null || itemData === void 0 ? void 0 : (_itemData$map = itemData.map) === null || _itemData$map === void 0 ? void 0 : _itemData$map.call(itemData, function (i, k) {
     var code = (0, _reactElementToJsxString.default)(i.component);
 
     var copyCode = /*#__PURE__*/_react.default.createElement(_Text.default, {
       copyable: {
         text: code,
         onCopy: function onCopy() {
-          _antd.message.success('copies!');
+          _message2.default.success('copies!');
         },
-        icon: /*#__PURE__*/_react.default.createElement(_icons.CopyOutlined, {
+        icon: /*#__PURE__*/_react.default.createElement(_CopyOutlined2.default, {
           style: {
             fontSize: 20,
             marginLeft: 4,
@@ -153,7 +193,7 @@ var DemoLayout = function DemoLayout(props) {
 
     return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, {
       key: k
-    }, /*#__PURE__*/_react.default.createElement(_antd.Modal, {
+    }, /*#__PURE__*/_react.default.createElement(_modal.default, {
       destroyOnClose: true,
       onCancel: function onCancel() {
         return setTitle('');
@@ -167,33 +207,33 @@ var DemoLayout = function DemoLayout(props) {
       },
       visible: i.title === title,
       footer: false,
-      title: /*#__PURE__*/_react.default.createElement(_antd.Row, {
+      title: /*#__PURE__*/_react.default.createElement(_row.default, {
         justify: "space-between",
         align: "middle"
-      }, /*#__PURE__*/_react.default.createElement(_antd.Space, null, /*#__PURE__*/_react.default.createElement(_antd.Button, {
+      }, /*#__PURE__*/_react.default.createElement(_space.default, null, /*#__PURE__*/_react.default.createElement(_button.default, {
         type: view === 'preview' ? 'primary' : 'default',
         onClick: function onClick() {
           return setView('preview');
         }
-      }, /*#__PURE__*/_react.default.createElement(_icons.EyeOutlined, {
+      }, /*#__PURE__*/_react.default.createElement(_EyeOutlined2.default, {
         style: {
           fontSize: 22
         }
-      }), /*#__PURE__*/_react.default.createElement(_Text.default, null, "Preview")), /*#__PURE__*/_react.default.createElement(_antd.Button, {
+      }), /*#__PURE__*/_react.default.createElement(_Text.default, null, "Preview")), /*#__PURE__*/_react.default.createElement(_button.default, {
         type: view === 'code' ? 'primary' : 'default',
         onClick: function onClick() {
           return setView('code');
         }
-      }, /*#__PURE__*/_react.default.createElement(_icons.CodeOutlined, {
+      }, /*#__PURE__*/_react.default.createElement(_CodeOutlined2.default, {
         style: {
           fontSize: 20
         }
-      }), /*#__PURE__*/_react.default.createElement(_Text.default, null, "Sort Code")), /*#__PURE__*/_react.default.createElement(_antd.Button, {
+      }), /*#__PURE__*/_react.default.createElement(_Text.default, null, "Sort Code")), /*#__PURE__*/_react.default.createElement(_button.default, {
         type: view === 'fullCode' ? 'primary' : 'default',
         onClick: function onClick() {
           return setView('fullCode');
         }
-      }, /*#__PURE__*/_react.default.createElement(_icons.CodeOutlined, {
+      }, /*#__PURE__*/_react.default.createElement(_CodeOutlined2.default, {
         style: {
           fontSize: 20
         }
@@ -202,7 +242,7 @@ var DemoLayout = function DemoLayout(props) {
           marginRight: 30
         }
       }, copyCode))
-    }, /*#__PURE__*/_react.default.createElement(_antd.Card, {
+    }, /*#__PURE__*/_react.default.createElement(_card.default, {
       style: {
         display: 'flex',
         justifyContent: 'center'
@@ -213,20 +253,20 @@ var DemoLayout = function DemoLayout(props) {
       customStyle: {
         minHeight: 300
       }
-    }, code)))), /*#__PURE__*/_react.default.createElement(_antd.Col, _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, cols), colProps), i.span === '12' ? _objectSpread(_objectSpread({}, cols), {}, {
+    }, code)))), /*#__PURE__*/_react.default.createElement(_col.default, _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, cols), colProps), i.span === '12' ? _objectSpread(_objectSpread({}, cols), {}, {
       xxl: 12,
       xl: 24
     }) : {}), i.span === '24' ? _objectSpread(_objectSpread({}, cols), {}, {
       xxl: 24,
       xl: 24
-    }) : {}), /*#__PURE__*/_react.default.createElement(_antd.Card, {
+    }) : {}), /*#__PURE__*/_react.default.createElement(_card.default, {
       bordered: true,
       title: /*#__PURE__*/_react.default.createElement(_Title.default, {
         className: "mr-3 text-lg mb-0 "
       }, i.title),
-      extra: /*#__PURE__*/_react.default.createElement(_antd.Space, {
+      extra: /*#__PURE__*/_react.default.createElement(_space.default, {
         align: "center"
-      }, /*#__PURE__*/_react.default.createElement(_icons.FullscreenOutlined, {
+      }, /*#__PURE__*/_react.default.createElement(_FullscreenOutlined2.default, {
         style: {
           fontSize: 20,
           marginRight: 12,

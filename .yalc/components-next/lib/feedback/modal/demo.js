@@ -5,11 +5,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+require("antd/es/space/style");
+
+var _space = _interopRequireDefault(require("antd/es/space"));
+
+require("antd/es/button/style");
+
+var _button = _interopRequireDefault(require("antd/es/button"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _ahooks = require("ahooks");
-
-var _antd = require("antd");
 
 var _ = require("../");
 
@@ -42,17 +48,17 @@ var _default = function _default() {
 
   var data = [{
     title: 'Simple Modal',
-    component: /*#__PURE__*/_react.default.createElement(_antd.Space, {
+    component: /*#__PURE__*/_react.default.createElement(_space.default, {
       direction: "vertical"
-    }, /*#__PURE__*/_react.default.createElement(_antd.Button, {
+    }, /*#__PURE__*/_react.default.createElement(_button.default, {
       onClick: toggle,
       type: "primary"
     }, "Simple Modal"))
   }, {
     title: 'Delete Modal',
-    component: /*#__PURE__*/_react.default.createElement(_antd.Space, {
+    component: /*#__PURE__*/_react.default.createElement(_space.default, {
       direction: "vertical"
-    }, /*#__PURE__*/_react.default.createElement(_.ModalUI1, null), /*#__PURE__*/_react.default.createElement(_antd.Button, {
+    }, /*#__PURE__*/_react.default.createElement(_.ModalUI1, null), /*#__PURE__*/_react.default.createElement(_button.default, {
       onClick: toggle1,
       type: "primary"
     }, "Delete Modal"))

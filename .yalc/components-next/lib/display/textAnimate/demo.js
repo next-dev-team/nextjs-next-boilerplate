@@ -5,11 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+require("antd/es/space/style");
+
+var _space = _interopRequireDefault(require("antd/es/space"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _ahooks = require("ahooks");
-
-var _antd = require("antd");
 
 var _componentsNext = require("components-next");
 
@@ -47,7 +49,7 @@ var Demo = function Demo() {
     type: state.type,
     mode: state.mode,
     className: "text-4xl text-green-400"
-  }, state.show && text), /*#__PURE__*/_react.default.createElement(_antd.Space, {
+  }, state.show && text), /*#__PURE__*/_react.default.createElement(_space.default, {
     size: "large",
     className: "mt-10"
   }, "type:", /*#__PURE__*/_react.default.createElement(_componentsNext.Select1, {
