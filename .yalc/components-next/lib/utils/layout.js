@@ -11,8 +11,6 @@ require("antd/es/col/style");
 
 var _col = _interopRequireDefault(require("antd/es/col"));
 
-var _FullscreenOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/FullscreenOutlined"));
-
 require("antd/es/modal/style");
 
 var _modal = _interopRequireDefault(require("antd/es/modal"));
@@ -25,15 +23,9 @@ require("antd/es/row/style");
 
 var _row = _interopRequireDefault(require("antd/es/row"));
 
-var _CodeOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/CodeOutlined"));
-
 require("antd/es/button/style");
 
 var _button = _interopRequireDefault(require("antd/es/button"));
-
-var _EyeOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/EyeOutlined"));
-
-var _CopyOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/CopyOutlined"));
 
 require("antd/es/message/style");
 
@@ -50,6 +42,8 @@ var _space = _interopRequireDefault(require("antd/es/space"));
 require("antd/es/input/style");
 
 var _input = _interopRequireDefault(require("antd/es/input"));
+
+var _icons = require("@ant-design/icons");
 
 var _ahooks = require("ahooks");
 
@@ -180,7 +174,7 @@ var DemoLayout = function DemoLayout(props) {
         onCopy: function onCopy() {
           _message2.default.success('copies!');
         },
-        icon: /*#__PURE__*/_react.default.createElement(_CopyOutlined2.default, {
+        icon: /*#__PURE__*/_react.default.createElement(_icons.CopyOutlined, {
           style: {
             fontSize: 20,
             marginLeft: 4,
@@ -215,7 +209,7 @@ var DemoLayout = function DemoLayout(props) {
         onClick: function onClick() {
           return setView('preview');
         }
-      }, /*#__PURE__*/_react.default.createElement(_EyeOutlined2.default, {
+      }, /*#__PURE__*/_react.default.createElement(_icons.EyeOutlined, {
         style: {
           fontSize: 22
         }
@@ -224,7 +218,7 @@ var DemoLayout = function DemoLayout(props) {
         onClick: function onClick() {
           return setView('code');
         }
-      }, /*#__PURE__*/_react.default.createElement(_CodeOutlined2.default, {
+      }, /*#__PURE__*/_react.default.createElement(_icons.CodeOutlined, {
         style: {
           fontSize: 20
         }
@@ -233,7 +227,7 @@ var DemoLayout = function DemoLayout(props) {
         onClick: function onClick() {
           return setView('fullCode');
         }
-      }, /*#__PURE__*/_react.default.createElement(_CodeOutlined2.default, {
+      }, /*#__PURE__*/_react.default.createElement(_icons.CodeOutlined, {
         style: {
           fontSize: 20
         }
@@ -266,7 +260,7 @@ var DemoLayout = function DemoLayout(props) {
       }, i.title),
       extra: /*#__PURE__*/_react.default.createElement(_space.default, {
         align: "center"
-      }, /*#__PURE__*/_react.default.createElement(_FullscreenOutlined2.default, {
+      }, /*#__PURE__*/_react.default.createElement(_icons.FullscreenOutlined, {
         style: {
           fontSize: 20,
           marginRight: 12,

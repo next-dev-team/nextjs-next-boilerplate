@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _HeartOutlined2 = _interopRequireDefault(require("@ant-design/icons/es/icons/HeartOutlined"));
-
 var _range2 = _interopRequireDefault(require("lodash/range"));
 
 require("antd/es/space/style");
@@ -18,6 +16,8 @@ require("antd/es/button/style");
 var _button = _interopRequireDefault(require("antd/es/button"));
 
 var _react = _interopRequireDefault(require("react"));
+
+var _icons = require("@ant-design/icons");
 
 var _ahooks = require("ahooks");
 
@@ -80,7 +80,7 @@ var _default = function _default() {
       className: "w-40"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "flex items-center justify-center"
-    }, /*#__PURE__*/_react.default.createElement(_HeartOutlined2.default, {
+    }, /*#__PURE__*/_react.default.createElement(_icons.HeartOutlined, {
       className: "mr-3"
     }), " Item ", i));
   }));

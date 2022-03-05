@@ -13,11 +13,9 @@ Object.defineProperty(exports, "Panel", {
 });
 exports.default = void 0;
 
-var _DownCircleFilled2 = _interopRequireDefault(require("@ant-design/icons/es/icons/DownCircleFilled"));
-
-var _UpCircleFilled2 = _interopRequireDefault(require("@ant-design/icons/es/icons/UpCircleFilled"));
-
 var _react = _interopRequireDefault(require("react"));
+
+var _icons = require("@ant-design/icons");
 
 var _rcCollapse = _interopRequireWildcard(require("rc-collapse"));
 
@@ -45,12 +43,12 @@ var Collapse = function Collapse(props) {
     expandIcon: function expandIcon(param) {
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "mr-3"
-      }, (param === null || param === void 0 ? void 0 : param.isActive) ? /*#__PURE__*/_react.default.createElement(_UpCircleFilled2.default, {
+      }, (param === null || param === void 0 ? void 0 : param.isActive) ? /*#__PURE__*/_react.default.createElement(_icons.UpCircleFilled, {
         style: {
           fontSize: 20,
           color: _.twColors.blue['400']
         }
-      }) : /*#__PURE__*/_react.default.createElement(_DownCircleFilled2.default, {
+      }) : /*#__PURE__*/_react.default.createElement(_icons.DownCircleFilled, {
         style: {
           fontSize: 20,
           color: _.twColors.blue['400']
