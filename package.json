@@ -27,7 +27,7 @@
         "ycom-update": "rm -rf yalc.lock && yalc update components-next --no-pure",
         "clean:yalc": "rm -rf .yalc",
         "gen:docs": "cd src/docs && pandoc *.md metadata.yaml -s -o allDocs.md && mv allDocs.md  ../../README.md && cd ../",
-        "link-generator": "cd generator-nextjs-boilerplate && yarn local-link && cd ../",
+        "link-generator": "cd generator && yarn local-link && cd ../",
         "===================================== GENERATOR =========================================": "",
         "hoc": "cd ./src && yo nextjs-boilerplate:hoc --force && cd ../",
         "page": "cd ./src && yo nextjs-boilerplate:page --force",
