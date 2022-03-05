@@ -4,7 +4,7 @@ const Layout = dynamic(() => import('../components/module/Layout'));
 
 export default function <%= componentName %>() {
   return (
-    <Layout pageTitle={<%= componentName %>}>
+    <Layout pageTitle="<%= componentName %>">
       <h1><%= componentName %></h1>
     </Layout>
   );

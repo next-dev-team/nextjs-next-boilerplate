@@ -40,7 +40,8 @@
         "enum": "cd ./src && yo nextjs-boilerplate:enum --force",
         "hook": "cd ./src && yo nextjs-boilerplate:hook --force",
         "context": "cd ./src && yo nextjs-boilerplate:context --force",
-        "constant": "cd ./src && yo nextjs-boilerplate:constant --force"
+        "constant": "cd ./src && yo nextjs-boilerplate:constant --force",
+        "store": "cd ./src && yo nextjs-boilerplate:store --force"
     },
     "dependencies": {
         "@ant-design/icons": "^4.7.0",

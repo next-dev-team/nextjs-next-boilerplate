@@ -46,3 +46,5 @@ $ yo nextjs-boilerplate:page
   - [yo nextjs-typescript-antd:hook](#yo-nextjs-typescript-antdhook)
   - [yo nextjs-typescript-antd:context](#yo-nextjs-typescript-antdcontext)
   - [yo nextjs-typescript-antd:model](#yo-nextjs-typescript-antdmodel)
+
+credit: https://github.com/ElectronHacked/nextjs-typescript-antd/blob/master/generators/page/index.js
