@@ -3,11 +3,13 @@ import { NarBar } from '@/components/module';
 import { useOfflineNotification } from '@/hooks';
 import useDarkMode from '@/hooks/useDarkMode';
 import withApollo from '@/utils/withApollo';
-import { FormProvider } from 'components-next';
+import { FormProvider, isDev } from 'components-next/lib';
 import 'components-next/lib/assets/styles.css';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 import React from 'react';
+import type { InspectParams } from 'react-dev-inspector';
+import { Inspector } from 'react-dev-inspector';
 import '../styles/global.css';
 import('../locales');
 
@@ -23,10 +25,22 @@ function MyApp({ Component, pageProps, router }) {
   useOfflineNotification();
 
   return (
-    <FormProvider>
-      <NarBar {...router} />
-      <Component {...pageProps} />
-    </FormProvider>
+    <Inspector
+      disableLaunchEditor={!isDev}
+      keys={['control', 'shift', 'c']}
+      onClickElement={(inspect: InspectParams) => {
+        console.debug(inspect);
+        if (isDev || !inspect.codeInfo?.relativePath) {
+          return null;
+        }
+        return null;
+      }}
+    >
+      <FormProvider>
+        <NarBar {...router} />
+        <Component {...pageProps} />
+      </FormProvider>
+    </Inspector>
   );
 }
 

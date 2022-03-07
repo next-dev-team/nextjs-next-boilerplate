@@ -27,7 +27,10 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "next.config.js"
-, ".babel", ",babelrc"  ],
+    "next.config.js",
+    ".babel",
+    ",babelrc",
+    ".babelrc.js"
+  ],
   "exclude": ["node_modules", ".cache"]
 }

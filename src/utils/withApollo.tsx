@@ -2,11 +2,10 @@ import { CREDENTIAL } from '@/constants';
 import { ApolloClient, ApolloLink, HttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
-import { notifications } from 'components-next';
+import { isBrowser, isDev, notifications } from 'components-next';
 import { withApollo } from 'next-apollo';
 
 export const cache: InMemoryCache = new InMemoryCache({ addTypename: false });
-const isDev = process.env.NODE_ENV === 'development';
 
 const httpLink = new HttpLink({
   uri: CREDENTIAL.GRAPHQL_API_ENDPOINT,
@@ -40,10 +39,13 @@ const client = new ApolloClient({
           error: string;
           statusCode: number;
         });
-      notifications.error({
-        message: err?.error,
-        description: err?.message,
-      });
+
+      if (isBrowser) {
+        notifications.error({
+          message: err?.error,
+          description: err?.message,
+        });
+      }
 
       if (networkError) {
         return console.log(`[Network error]: ${networkError}`);
