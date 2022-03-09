@@ -15,7 +15,7 @@
         "============================= DEVELOPMENT ====================================": "",
         "dev": "node server.js",
         "dev:next": "next",
-        "start": "yarn dev",
+        "start": "next start",
         "prod": "next start",
         "dev:gen": "yarn codegen &&  next",
         "docker-run": "docker run -p 3000:3000 nextjs-docker",
