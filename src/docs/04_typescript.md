@@ -1,6 +1,12 @@
 # Typescript tutorial Common use in ReactJS
 
 ```tsx
+type LiteralUnion<T extends U, U> = T | (U & {});
+type someProps = {
+  color?: LiteralUnion<'a' | 'b', string>;
+};
+// usage: color="red" or color="#000" it can assign type and string the same time
+
 /**
  * interface: defined interface
  */

@@ -10,7 +10,7 @@ const IndexPage = () => {
   const { content } = useApolloGraph();
 
   return (
-    <Layout pageTitle="Home | Next.js + TypeScript Example">
+    <Layout title={demoStore?.postData?.title}>
       <Section hasMt>
         <div className="flex justify-center gap-20 text-center">
           <div className="border p-4 rounded-md">

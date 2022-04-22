@@ -2,7 +2,7 @@ import { CREDENTIAL } from '@/constants';
 import { ApolloClient, ApolloLink, HttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
-import { isBrowser, isDev, notifications } from 'components-next';
+import { isBrowser, isDev, isSsr, notifications } from 'components-next';
 import { withApollo } from 'next-apollo';
 
 export const cache: InMemoryCache = new InMemoryCache({ addTypename: false });
@@ -28,6 +28,8 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   cache,
+  ssrForceFetchDelay: 100,
+  ssrMode: isSsr,
   link: ApolloLink.from([
     // eslint-disable-next-line consistent-return
     onError(({ graphQLErrors, networkError }) => {

@@ -5,7 +5,7 @@ const IndexPageTemplate = dynamic(() => import('@/components/template/home'));
 
 const IndexPage = () => {
   return (
-    <Layout pageTitle="Home | Next.js + TypeScript Example" className="px-20 py-6">
+    <Layout title="Home | Next.js + TypeScript Example" className="px-20 py-6">
       <IndexPageTemplate />
     </Layout>
   );
