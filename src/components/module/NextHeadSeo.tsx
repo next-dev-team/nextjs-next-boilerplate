@@ -103,7 +103,7 @@ const NextHeadSeo: React.VFC<SEOProps> = memo(
         <meta
           key="og:description"
           property="og:description"
-          content={(og.description || description)?.substr(0, maxDescriptionCharacters)}
+          content={(og.description || description)?.substring(0, maxDescriptionCharacters)}
         />,
       );
     }

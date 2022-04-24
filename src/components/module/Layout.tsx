@@ -1,5 +1,5 @@
 import useRoutes from '@/hooks/useRoutes';
-import { clx, getNotNullVal } from '@/utils';
+import { clx, getNotNullVal, isBrowser } from '@/utils';
 import React, { ReactNode } from 'react';
 import NarBar from './NarBar';
 import NextHeadSeo from './NextHeadSeo';
@@ -23,7 +23,7 @@ const Layout = ({
   className = '',
   childrenOnly,
   noTitleTemplate,
-  path,
+  path = '',
   description,
   noindex,
   ogImagePath,
@@ -31,16 +31,16 @@ const Layout = ({
 }: ILayout) => {
   const { pathname } = useRoutes();
   const newPageTitle = title || pathname.replace('/', '');
-  const APP_ROOT_URL = 'http://localhost:3000/';
+  const APP_ROOT_URL = isBrowser ? window.location.origin : '';
 
   // Absolute page url
-  const pageUrl = APP_ROOT_URL + path || pathname.replace('/', '');
+  const pageUrl = APP_ROOT_URL + path || pathname.replace('/', '') || '';
   // Absolute og image url
   const ogImageUrl = ogImagePath ? APP_ROOT_URL + ogImagePath : '';
 
   const head = (
     <NextHeadSeo
-      title={noTitleTemplate ? newPageTitle : `${newPageTitle} - Nextjs22`}
+      title={noTitleTemplate ? newPageTitle : `${newPageTitle} - Nextjs`}
       canonical={pageUrl}
       description={description}
       robots={noindex ? 'noindex, nofollow' : undefined}
