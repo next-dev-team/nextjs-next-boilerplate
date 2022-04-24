@@ -1,5 +1,10 @@
 // credit: https://raw.githubusercontent.com/catnose99/next-head-seo/main/index.tsx
 
+/**
+ * note: for telegram metadata will cache
+ * @description  clear in https://telegram.me/webpagebot then send a url to bot
+ */
+
 import NextHead from 'next/head';
 import React, { memo } from 'react';
 
