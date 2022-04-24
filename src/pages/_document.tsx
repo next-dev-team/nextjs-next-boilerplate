@@ -3,7 +3,7 @@ import React from 'react';
 
 function MyDocument() {
   return (
-    <Html lang="en">
+    <Html lang="en" prefix="og: http://ogp.me/ns#">
       <title>Nextjs Next Boilerplate</title>
       <Head>
         <meta property="og:type" content="website" />
