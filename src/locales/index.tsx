@@ -36,4 +36,14 @@ export { resources };
 export type { StringMap, TOptionsBase, TFuncKey, I18nKey };
 type I18nKey = keyof typeof resources;
 
+/**
+ * translate i18n
+ * @param key
+ * @param options
+ * @returns
+ */
+export const t = (key: TFuncKey, options?: TOptionsBase & StringMap) => {
+  return i18n.t(key, options);
+};
+
 export default i18n;
