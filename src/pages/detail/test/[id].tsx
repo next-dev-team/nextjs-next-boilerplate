@@ -10,7 +10,7 @@ const IndexPage = () => {
 
   const { data: postData, loading: loadingPostData } = usePostQuery({
     variables: { id: router?.query?.id as string },
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'network-only',
   });
 
   console.log('postData', postData);
